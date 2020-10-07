@@ -1,0 +1,22 @@
+webpackHotUpdate("main",{
+
+/***/ "./node_modules/css-loader/dist/cjs.js?!./node_modules/postcss-loader/src/index.js?!./src/css/card.css":
+/*!*****************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??ref--6-oneOf-3-1!./node_modules/postcss-loader/src??postcss!./src/css/card.css ***!
+  \*****************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// Imports
+var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+exports = ___CSS_LOADER_API_IMPORT___(false);
+// Module
+exports.push([module.i, "\n\nbody {\n    padding: 0;\n    margin: 0;\n    background-color:white ;\n    color: #17141d;\n    font-family: 'DM Mono', monospace;\n}\n\na {\n    text-decoration: none;\n}\n\n.card-list {\n    display: flex;\n    padding: 3rem;\n    overflow-x: scroll;\n}\n\n.card-list::-webkit-scrollbar {\n    width: 10px;\n    height: 10px;\n}\n.card-list::-webkit-scrollbar-thumb {\n    background: white;\n    border-radius: 10px;\n    box-shadow: inset 2px 2px 2px hsla(0,0%,100%,.25), inset -2px -2px 2px rgba(0,0,0,.25);\n}\n\n.card-list::-webkit-scrollbar-track {\n    background: linear-gradient(90deg,#201c29,#201c29 1px,#17141d 0,#17141d);\n    border-radius: 10px;\n}\n\n\n.card {\n    height: 150px;\n    width: 250px;\n    min-width: 250px;\n    padding: 1.5rem;\n    padding-top:1rem;\n    padding-bottom: 2.25rem;\n    border-radius: 16px;\n    background: white;\n    box-shadow: -1rem 0 1rem grey;\n    display: flex;\n    flex-direction: column;\n    transition: .2s;\n    margin: 0;\n    scroll-snap-align: start;\n    clear: both;\n    position: relative;\n}\n\n.card:focus-within~.card, .card:hover~.card {\n    transform: translateX(135px);\n}\n\n.card:hover {\n    transform: translateY(-0.4rem);\n    cursor:pointer;\n}\n\n.card:not(:first-child) {\n    margin-left: -130px;\n}\n\n\n.card-header {\n    margin-bottom: auto;\n}\n\n.card-header p {\n    font-size: 14px;\n    margin: 0 0 0rem;\n    color: #7a7a8c;\n}\n\n.card-header h2 {\n    font-size: 12px;\n    margin: .25rem 0 auto;\n    text-decoration: none;\n    color: inherit;\n    border: 0;\n    display: inline-block;\n    cursor: pointer;\n}\n\n.card-header h2:hover {\n    background: linear-gradient(90deg,teal,navy);\n    text-shadow: none;\n    -webkit-text-fill-color: transparent;\n    -webkit-background-clip: text;\n    background-clip: text;\n}\n\n.card-author {\n    margin: 0.5rem 0 0;\n    display: grid;\n    grid-template-columns: 75px 1fr;\n    align-items: center;\n    position: relative;\n}\n\n.author-avatar {\n    grid-area: auto;\n    align-self: start;\n    position: relative;\n    box-sizing: border-box;\n}\n\n.author-avatar img {\n    width: 40px;\n    height: 40px;\n    border-radius: 50%;    \n    display: block;\n    overflow: hidden;\n    margin: 10px 10px;\n}\n\n.author-name {\n    grid-area: auto;\n    box-sizing: border-box;\n}\n\n.author-name-prefix {\n    font-style: normal;\n    font-weight: 700;\n    color: #7a7a8c;\n}\n\n.half-circle {\n    position: absolute;\n    bottom: 0;\n    left: 0;\n    width: 60px;\n    height: 48px;\n    fill: none;\n    stroke: #ff8a00;\n    stroke-width: 8;\n    stroke-linecap: round;\n    pointer-events: none;\n}\n\n.tags {\n    margin: 0.5rem 0 1rem;\n    padding: 0rem 0 1rem;\n    line-height: 2;\n    margin-bottom: 0;\n}\n\n.tags a {\n    display:inline-flex;\n    font-style: normal;\n    font-weight: 700;\n    font-size: .5rem;\n    color: #7a7a8c;\n    text-transform: uppercase;\n    font-size: .66rem;\n    border: 3px solid #28242f;\n    border-radius: 2rem;\n    padding: .2rem .85rem .25rem;\n    margin-left:0.15rem;\n    position: relative;\n}\n\n.tags a:hover {\n    background: linear-gradient(90deg,teal,navy);\n    text-shadow: none;\n    -webkit-text-fill-color: transparent;\n    -webkit-background-clip: text;\n    -webkit-box-decoration-break: clone;\n    background-clip: text;\n    border-color:navy;\n}", ""]);
+// Exports
+module.exports = exports;
+
+
+/***/ })
+
+})
+//# sourceMappingURL=main.a5c8d2fce9ea39c274d5.hot-update.js.map

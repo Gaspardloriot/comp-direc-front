@@ -1,0 +1,1825 @@
+(this["webpackJsonpcompany_directory_app"] = this["webpackJsonpcompany_directory_app"] || []).push([["main"],{
+
+/***/ "./node_modules/css-loader/dist/cjs.js?!./node_modules/postcss-loader/src/index.js?!./src/css/App.css":
+/*!****************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??ref--6-oneOf-3-1!./node_modules/postcss-loader/src??postcss!./src/css/App.css ***!
+  \****************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// Imports
+var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+exports = ___CSS_LOADER_API_IMPORT___(false);
+// Module
+exports.push([module.i, "*{\n  margin-top: 0;\n  z-index:1;\n}\n\n#App{\n  width:100vw;\n}\n#navBar{\n  position:fixed;\n  width:100vw;\n  height:4vh;  \n  background-color: teal;\n  z-index:5;\n}\n\n#main-container{\n  display:flex-column;\n  width:100%;\n  padding-top:4vh;\n  background-color: #F5F5F5;\n  height:100%;\n  z-index:2;  \n}\n\n#search_filter{\n  display:flex;\n  justify-content: center;\n  align-items:center;\n  height:5.5vh;\n  background-image: linear-gradient(\n    to bottom, \n    teal , whitesmoke\n  );\n  margin-bottom:1vh;\n}\n\n#employees{  \n  height:40vh;  \n}\n\n#location{\n  height:23vh;\n}\n\n#department{\n  height:25vh;\n}\n\n#container{\n  padding-left:10vw;\n  padding-right:5vw;\n}\n\n#employees-title{\n  display:flex;\n  align-items: center;\n}\n\n#employee-adder{\n  display:inline-block;\n  margin-left:20px;  \n  font-size: 16px;\n  padding-top:none;\n  margin-bottom:21px;\n  margin-top:none;\n  margin-right:25px;\n  border:3px solid navy;\n}\n\n#employee-adder:hover {\n  transition:0.2s;  \n  border:3px solid green;\n}\n\n.select{\n  background-color:transparent;\n  font-size:20px;\n  font-family: 'DM Mono', monospace;\n  border:none;\n  border-radius:none;\n  border-bottom: 2px solid navy;\n  margin-bottom: 10px;\n  color:black;\n  margin-right:20px;\n  cursor: pointer;\n}\n\nselect option{\n  background-color: navy;\n  color:white;\n}\n\n\n\n\n@media (min-width: 320px) and (max-width: 480px) {\n    \n    #navBar{\n      position:fixed;\n      width:100%;\n      height:7vh;  \n      background-color: teal;\n      z-index:5;\n    }\n    \n    #main-container{\n      display:flex-column;\n      width:100%;\n      padding-top:7vh;\n      background-color: #F5F5F5;\n      height:100%;\n      z-index:2;  \n      padding-bottom: 5vh;;\n    }\n    \n    #search_filter{\n      display:flex;\n      align-items:flex-start;\n      height:6vh;\n      background-image: linear-gradient(\n        to bottom, \n        teal , whitesmoke\n      );\n      margin-bottom:1vh;\n    }\n\n    .filt_location{\n      overflow-x: scroll;\n  }\n    \n    #employees{  \n      height:100%;\n      margin:none;  \n    }\n    \n    #location{\n      height:100%;\n    }\n    \n    #department{\n      height:100%;\n    }\n\n    #container{\n      padding-left:2vw;\n      padding-right:1.5vw;\n    }\n\n    .select{      \n      font-size:16px;      \n      margin-bottom: 5px;\n      width:20vw;\n      margin-right:2vw;   \n    }\n\n    #filterName_Id{\n      width:40vw;\n    }\n\n    h1{\n      font-size: 18px;\n    }\n\n    h3{\n      font-size:16px;\n    }\n\n    #employees-title{\n      display:flex-column;\n      align-items: flex-start;\n    }\n\n    #employee-adder{\n      display:inline-block;\n      margin-left:2vw;  \n      font-size: 12px;\n      padding-top:none;\n      margin-bottom:1vh;\n      margin-top:none;\n      margin-right:3vw;\n      border:3px solid navy;\n    }\n\n    #write-to-search_icon{\n      display:none;\n    }\n\n}\n", ""]);
+// Exports
+module.exports = exports;
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js?!./node_modules/postcss-loader/src/index.js?!./src/css/card.css":
+/*!*****************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??ref--6-oneOf-3-1!./node_modules/postcss-loader/src??postcss!./src/css/card.css ***!
+  \*****************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// Imports
+var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+exports = ___CSS_LOADER_API_IMPORT___(false);
+// Module
+exports.push([module.i, "\n\nbody {\n    padding: 0;\n    margin: 0;\n    background-color:white ;\n    color: #17141d;\n    font-family: 'DM Mono', monospace;\n}\n\na {\n    text-decoration: none;\n}\n\n.card-list {\n    display: flex;\n    padding: 3rem;\n    overflow-x: scroll;\n}\n\n.card-list::-webkit-scrollbar {\n    width: 10px;\n    height: 10px;\n}\n.card-list::-webkit-scrollbar-thumb {\n    background: white;\n    border-radius: 10px;\n    box-shadow: inset 2px 2px 2px hsla(0,0%,100%,.25), inset -2px -2px 2px rgba(0,0,0,.25);\n}\n\n.card-list::-webkit-scrollbar-track {\n    background: linear-gradient(90deg,#201c29,#201c29 1px,#17141d 0,#17141d);\n    border-radius: 10px;\n}\n\n\n.card {\n    height: 150px;\n    width: 250px;\n    min-width: 250px;\n    padding: 1.5rem;\n    padding-top:1rem;\n    padding-bottom: 2.25rem;\n    border-radius: 16px;\n    background: white;\n    box-shadow: -1rem 0 1rem grey;\n    display: flex;\n    flex-direction: column;\n    transition: .2s;\n    margin: 0;\n    scroll-snap-align: start;\n    clear: both;\n    position: relative;\n}\n\n.card:focus-within~.card, .card:hover~.card {\n    transform: translateX(135px);\n}\n\n.card:hover {\n    transform: translateY(-0.4rem);\n    cursor:pointer;\n}\n\n.card:not(:first-child) {\n    margin-left: -130px;\n}\n\n\n.card-header {\n    margin-bottom: auto;\n}\n\n.card-header p {\n    font-size: 14px;\n    margin: 0 0 0rem;\n    color: #7a7a8c;\n}\n\n.card-header h2 {\n    font-size: 12px;\n    margin: .25rem 0 auto;\n    text-decoration: none;\n    color: inherit;\n    border: 0;\n    display: inline-block;\n    cursor: pointer;\n}\n\n.card-header h2:hover {\n    background: linear-gradient(90deg,teal,navy);\n    text-shadow: none;\n    -webkit-text-fill-color: transparent;\n    -webkit-background-clip: text;\n    background-clip: text;\n}\n\n.card-author {\n    margin: 0.5rem 0 0;\n    display: grid;\n    grid-template-columns: 75px 1fr;\n    align-items: center;\n    position: relative;\n}\n\n.author-avatar {\n    grid-area: auto;\n    align-self: start;\n    position: relative;\n    box-sizing: border-box;\n}\n\n.author-avatar img {\n    width: 40px;\n    height: 40px;\n    border-radius: 50%;    \n    display: block;\n    overflow: hidden;\n    margin: 10px 10px;\n}\n\n.author-name {\n    grid-area: auto;\n    box-sizing: border-box;\n}\n\n.author-name-prefix {\n    font-style: normal;\n    font-weight: 700;\n    color: #7a7a8c;\n}\n\n.half-circle {\n    position: absolute;\n    bottom: 0;\n    left: 0;\n    width: 60px;\n    height: 48px;\n    fill: none;\n    stroke: #ff8a00;\n    stroke-width: 8;\n    stroke-linecap: round;\n    pointer-events: none;\n}\n\n.tags {\n    margin: 0.5rem 0 1rem;\n    padding: 0rem 0 1rem;\n    line-height: 2;\n    margin-bottom: 0;\n}\n\n.tags a {\n    display:inline-flex;\n    font-style: normal;\n    font-weight: 700;\n    font-size: .5rem;\n    color: #7a7a8c;\n    text-transform: uppercase;\n    font-size: .66rem;\n    border: 3px solid #28242f;\n    border-radius: 2rem;\n    padding: .2rem .85rem .25rem;\n    margin-left:0.15rem;\n    position: relative;\n}\n\n.tags a:hover {\n    background: linear-gradient(90deg,teal,navy);\n    text-shadow: none;\n    -webkit-text-fill-color: transparent;\n    -webkit-background-clip: text;\n    -webkit-box-decoration-break: clone;\n    background-clip: text;\n    border-color:navy;\n}", ""]);
+// Exports
+module.exports = exports;
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js?!./node_modules/postcss-loader/src/index.js?!./src/css/index.css":
+/*!******************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??ref--6-oneOf-3-1!./node_modules/postcss-loader/src??postcss!./src/css/index.css ***!
+  \******************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// Imports
+var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+exports = ___CSS_LOADER_API_IMPORT___(false);
+// Module
+exports.push([module.i, "body {\n  margin: 0;\n  padding:0;\n  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',\n    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',\n    sans-serif;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n}\n\ncode {\n  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',\n    monospace;\n}\n", ""]);
+// Exports
+module.exports = exports;
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js?!./node_modules/postcss-loader/src/index.js?!./src/css/modal.css":
+/*!******************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??ref--6-oneOf-3-1!./node_modules/postcss-loader/src??postcss!./src/css/modal.css ***!
+  \******************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// Imports
+var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+exports = ___CSS_LOADER_API_IMPORT___(false);
+// Module
+exports.push([module.i, ".modal-parent{\r\n  background-color: transparent;\r\n  position:fixed;\r\n  top:0;\r\n  left:0;\r\n  height:100vh;\r\n  width:100%;\r\n  display:none;\r\n  -webkit-backdrop-filter:blur(4px);\r\n          backdrop-filter:blur(4px);\r\n  z-index:2;\r\n}\r\n\r\n.modal{  \r\n  filter:none;\r\n  background:white;\r\n  width:700px;\r\n  height:350px;\r\n  padding:30px;\r\n  padding-bottom: 60px;\r\n  border-radius:20px;\r\n  position:absolute;\r\n  top:50%;\r\n  left:50%;\r\n  transform:translate(-50%,-50%);\r\n  color:#404040;\r\n  font-size:22px;\r\n  position:relative;\r\n  font-weight:lighter;\r\n  animation: 0.6s drop;  \r\n  border:2px solid gray;\r\n}\r\n@keyframes drop {\r\n  0%{\r\n    top:-100px;\r\n  }\r\n  \r\n  100%{\r\ntop:50%;\r\n  }\r\n}\r\n\r\n@keyframes appears {\r\n  0%{\r\n    width:0px;\r\n    white-space: nowrap;\r\n    overflow: hidden;\r\n  }\r\n\r\n  \r\n  100%{\r\n width:60%;\r\n white-space: nowrap;\r\n overflow: hidden;\r\n  }\r\n}\r\n\r\n\r\n\r\n#modal-content{\r\n  display:flex-column;\r\n  transition:0.5s;\r\n}\r\n\r\n#modal-title{\r\n  display:flex;\r\n  justify-content: center;\r\n  color: navy;\r\n}\r\n\r\n#avatar{\r\n  position:absolute;\r\n  top:100px;\r\n  right:35px;\r\n  height:180px;\r\n  width:auto;\r\n  background-color: #FF4500;\r\n  border-radius:50%;\r\n}\r\n\r\n.change-info{\r\n  display:flex;\r\n  align-items:baseline;\r\n}\r\n\r\ninput{\r\n  background-color:transparent;\r\n  font-size:20px;\r\n  font-family: 'DM Mono', monospace;\r\n  border:none;\r\n  border-radius:none;\r\n  border-bottom: 1.5px solid navy;\r\n  margin-bottom: 10px;\r\n  \r\n}\r\n\r\nbutton{\r\n  padding-left:20px;\r\n  padding-right:20px;\r\n  border-radius:15px;\r\n  background: linear-gradient(90deg,teal,navy);\r\n  text-shadow: none;\r\n  -webkit-text-fill-color: transparent;\r\n  -webkit-background-clip: text;\r\n          background-clip: text;\r\n  border-color:navy;\r\n  padding-top:5px;\r\n  padding-bottom:5px;\r\n  font-size: 16px;\r\n  font-weight: bold;\r\n  cursor:pointer;\r\n}\r\n\r\n.names{\r\n  width:60%;\r\n  margin-bottom: 50px;\r\n  animation: appears 0.15s;\r\n}\r\n\r\n.appear-element{\r\n  animation : appears 0.15s;\r\n}\r\n\r\n.disappear-element{\r\n  animation : appears 0.085s;\r\n}\r\n\r\n\r\n\r\n.location{\r\n  margin-left:75px;\r\n}\r\n.change-button{\r\n  background: teal;\r\n  text-align: center;\r\n  width: 40px;\r\n  height: 40px;\r\n  border-radius: 50%;\r\n  display: inline-flex;\r\n  flex-direction: column;\r\n  justify-content: center;\r\n  align-items: center;\r\n  font-size: 20px;\r\n  color: white;\r\n  font-weight: bold;\r\n  text-decoration: none;\r\n  border:none;\r\n  margin-left: 15px;\r\n  cursor:pointer;\r\n  margin-right: 20px;\r\n}\r\n\r\n\r\n\r\n.edit-icon{\r\n  height:28px;\r\n  width:auto;\r\n  background-color:white;\r\n  border-radius:50%;\r\n  padding:2px;\r\n}\r\n\r\n#delete-button{\r\n  position:absolute;\r\n  top:325px;\r\n  right:85px;\r\n  padding-top:10px;\r\n  border:none;\r\n  background-color:tomato;\r\n}\r\n\r\n#delete-button:active{\r\n  outline:none;\r\n}\r\n\r\n#delete-button :hover{\r\n  background-color:#8B0000;\r\n}\r\n\r\n#delete{\r\n  height:35px;\r\n  width:auto;\r\n  background-color:#FE5353;\r\n  border-radius: 6px;\r\n  padding:12px;\r\n}\r\n\r\n#add-button{\r\n  position:absolute;\r\n  top:325px;\r\n  right:85px;\r\n  padding-top:10px;\r\n  border:none;\r\n}\r\n\r\n#add-button:active{\r\n  outline:none;\r\n}\r\n\r\n#add-button :hover{\r\n  background-color:#219421;\r\n}\r\n\r\n#add{\r\n  height:35px;\r\n  width:auto;\r\n  background-color:#32CD32;\r\n  border-radius: 6px;\r\n  padding:12px;\r\n}\r\n\r\n.X{\r\n  position:absolute;\r\n  right:20px;\r\n  top:5px;\r\n  font-size:30px;\r\n  cursor:pointer;\r\n  color:black; \r\n}\r\n\r\n@media (min-width: 320px) and (max-width: 480px) {\r\n\r\n  .modal{  \r\n    filter:none;\r\n    background:white;\r\n    width:85vw;\r\n    height:60vh;\r\n    padding:5vw;\r\n    padding-bottom: 5vh;\r\n    border-radius:20px;\r\n    position:absolute;\r\n    top:55%;\r\n    left:50%;\r\n    color:#404040;\r\n    font-size:16px;\r\n    position:relative;\r\n    font-weight:lighter;\r\n    animation: 0.6s drop;  \r\n    border:2px solid gray;\r\n  }\r\n  input{\r\n  font-size:16px;  \r\n  margin-bottom: 10px;\r\n  width:50vw;\r\n  }\r\n\r\n  #avatar{\r\n    position:absolute;\r\n    top:10%;\r\n    right:7%;\r\n    height:50px;\r\n    width:auto;\r\n    background-color: #FF4500;\r\n    border-radius:50%;\r\n  }\r\n\r\n  #add-button{\r\n    position:absolute;\r\n    top:70%;\r\n    right:7%;\r\n    padding-top:10px;\r\n    border:none;\r\n    font-size: 12px;;\r\n  }\r\n\r\n  #add{\r\n    height:35px;\r\n    width:auto;\r\n    background-color:#32CD32;\r\n    border-radius: 6px;\r\n    padding:15%;\r\n  }\r\n\r\n  .location{\r\n    margin-left:13%;\r\n    font-size: 12px;;\r\n  }\r\n  .change-button{\r\n    width: 20px;\r\n    height: 20px;\r\n    font-size: 16px;\r\n    color: white;\r\n    font-weight: bold;\r\n    text-decoration: none;\r\n    border:none;\r\n    margin-left: 0%;\r\n    cursor:pointer;\r\n    margin-right: 2%;\r\n    border:0px;\r\n    background-color: white;    \r\n  }\r\n  \r\n  .names{\r\n    width:65%;\r\n    margin-bottom: 5vh;\r\n    animation: appears 0.15s;\r\n    font-size: 16px;\r\n  }\r\n  \r\n  .edit-icon{\r\n    height:14px;\r\n    width:auto;\r\n    background-color:white;\r\n    border-radius:50%;\r\n    border:2px solid black;\r\n    \r\n  }\r\n  \r\n  #delete-button{\r\n    position:absolute;\r\n    top:75%;\r\n    right:7%;\r\n    padding-top:10px;\r\n    border:none;\r\n    font-size: 12px;;\r\n    background-color:tomato;\r\n  }\r\n  \r\n  #delete-button:active{\r\n    outline:none;\r\n  }\r\n  \r\n  #delete-button :hover{\r\n    background-color:#8B0000;\r\n  }\r\n  \r\n  #delete{\r\n    height:25px;\r\n    width:auto;\r\n    border-radius: 6px;\r\n    padding:15%;\r\n    background-color:#FE5353;    \r\n    \r\n  }\r\n\r\n  .appear-element{\r\n    font-size:14px;\r\n  }\r\n\r\n  .modal button{\r\n   font-size: 10px;\r\n   padding:4px;\r\n  }\r\n}\r\n\r\n", ""]);
+// Exports
+module.exports = exports;
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js?!./node_modules/postcss-loader/src/index.js?!./src/css/small-card.css":
+/*!***********************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??ref--6-oneOf-3-1!./node_modules/postcss-loader/src??postcss!./src/css/small-card.css ***!
+  \***********************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// Imports
+var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+exports = ___CSS_LOADER_API_IMPORT___(false);
+// Module
+exports.push([module.i, "\n\nbody {\n    padding: 0;\n    margin: 0;\n    background-color:white ;\n    color: #17141d;\n    font-family: 'DM Mono', monospace;\n}\n\na {\n    text-decoration: none;\n}\n\n.small-card-list {\n    display: flex;\n    padding: 3rem;\n    padding-bottom:15px;\n    overflow-x: scroll;\n}\n\n.small-card-list::-webkit-scrollbar {\n    width: 10px;\n    height: 10px;\n}\n.small-card-list::-webkit-scrollbar-thumb {\n    background: white;\n    border-radius: 10px;\n    box-shadow: inset 2px 2px 2px hsla(0,0%,100%,.25), inset -2px -2px 2px rgba(0,0,0,.25);\n}\n\n.small-card-list::-webkit-scrollbar-track {\n    background: linear-gradient(90deg,#201c29,#201c29 1px,#17141d 0,#17141d);\n    border-radius: 10px;\n}\n\n\n.small-card {\n    height: 60px;\n    width: 275px;\n    min-width: 250px;\n    padding: 1.5rem;\n    border-radius: 16px;\n    background: white;\n    box-shadow: -1rem 0 1rem grey;\n    display: flex;\n    flex-direction: column;\n    transition: .2s;\n    margin: 0;\n    scroll-snap-align: start;\n    clear: both;\n    position: relative;\n}\n\n.small-card p{\n    font-size: 25px;\n    font-weight: 200;    \n    margin-bottom:10px;\n    color:gray;\n}\n\n.small-card :hover p{\n    color:orangered;\n}\n.small-card:focus-within~.small-card, .small-card:hover~.small-card {\n    transform: translateX(65px);\n}\n\n.small-card:hover {\n    transform: translateY(-0.5rem);\n    cursor:pointer;\n}\n\n.small-card:not(:first-child) {\n    margin-left: -130px;\n}\n\n\n.small-card-header {\n    margin-bottom: auto;\n}\n\n.small-card-header p {\n    font-size: 30px;\n    margin: 0 0 1rem;\n    color: #7a7a8c;\n}\n\n.small-card-header h2 {\n    font-size: 20px;\n    margin: .25rem 0 auto;\n    text-decoration: none;\n    color: inherit;\n    border: 0;\n    display: inline-block;\n    cursor: pointer;\n}\n\n.small-card-header h2:hover {\n    background: linear-gradient(90deg,#ff8a00,#e52e71);\n    text-shadow: none;\n    -webkit-text-fill-color: transparent;\n    -webkit-background-clip: text;\n    background-clip: text;\n}\n\n.filt_location{\n    overflow-x: hidden;\n}\n\n\n\n@media (min-width: 320px) and (max-width: 480px) {\n    .filt_location{\n        overflow-x: scroll;\n    }\n        \n}\n", ""]);
+// Exports
+module.exports = exports;
+
+
+/***/ }),
+
+/***/ "./src/App.js":
+/*!********************!*\
+  !*** ./src/App.js ***!
+  \********************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _Employees__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Employees */ "./src/Employees.js");
+/* harmony import */ var _Location__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Location */ "./src/Location.js");
+/* harmony import */ var _Department__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Department */ "./src/Department.js");
+/* harmony import */ var _css_card_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./css/card.css */ "./src/css/card.css");
+/* harmony import */ var _css_card_css__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_css_card_css__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _css_small_card_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./css/small-card.css */ "./src/css/small-card.css");
+/* harmony import */ var _css_small_card_css__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_css_small_card_css__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _css_modal_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./css/modal.css */ "./src/css/modal.css");
+/* harmony import */ var _css_modal_css__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_css_modal_css__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _css_App_css__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./css/App.css */ "./src/css/App.css");
+/* harmony import */ var _css_App_css__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_css_App_css__WEBPACK_IMPORTED_MODULE_7__);
+var _jsxFileName = "C:\\Users\\Gaspard Loriot\\Desktop\\Coding_projects\\Visual_studio\\company_directory\\company_directory_app\\src\\App.js";
+
+
+
+
+
+
+
+
+
+function App() {
+  const [state, setState] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({
+    filteredArray: '',
+    personnelData: '',
+    filterLocation: 'World',
+    filterDepartment: 'All',
+    filterNam_Id: ''
+  });
+  const departmentFind = [{
+    'department': 'All'
+  }, {
+    'department': 'Human Resources',
+    'locationId': 1
+  }, {
+    'department': 'Sales',
+    'locationId': 2
+  }, {
+    'department': 'Marketing',
+    'locationId': 2
+  }, {
+    'department': 'Legal',
+    'locationId': 4
+  }, {
+    'department': 'Services',
+    'locationId': 5
+  }, {
+    'department': 'R&D',
+    'locationId': 3
+  }, {
+    'department': 'Product Management',
+    'locationId': 3
+  }, {
+    'department': 'Training',
+    'locationId': 4
+  }, {
+    'department': 'Support',
+    'locationId': 4
+  }, {
+    'department': 'Engineering',
+    'locationId': 5
+  }, {
+    'department': 'Accounting',
+    'locationId': 5
+  }, {
+    'department': 'Business Development',
+    'locationId': 3
+  }]; //Location Logic
+
+  const locationFind = ["World", "London", 'New York', "Paris", "Munich", "Rome"];
+  let personnelData = [];
+
+  const personnelData_fetch = async () => {
+    personnelData.splice(0, personnelData.length);
+    let response = await fetch(`http://localhost:8081/geteverything`);
+    let data = await response.json();
+
+    for (let i = 0; i <= data.length - 1; i++) {
+      personnelData.push([data[i]]);
+      let departmentID = data[i].departmentID;
+      let locationId = departmentFind[departmentID].locationId;
+      let department = departmentFind[departmentID].department;
+      let location = locationFind[locationId];
+      personnelData[i].push(department, location);
+    }
+
+    setState(prevState => {
+      return { ...prevState,
+        filteredArray: personnelData,
+        personnelData: personnelData
+      };
+    });
+  };
+
+  let filteredArray = personnelData;
+
+  const selectLoc_handler = e => {
+    const location = e.target.value;
+    setState(prevState => {
+      return { ...prevState,
+        filterLocation: location
+      };
+    });
+    filter(location, 'filterLoc');
+  };
+
+  const selectDep_handler = e => {
+    const department = e.target.value;
+    setState(prevState => {
+      return { ...prevState,
+        filterDepartment: department
+      };
+    });
+    filter(department, 'filterDep');
+  };
+
+  const inputChange = e => {
+    const input = e.target.value;
+    setState(prevState => {
+      return { ...prevState,
+        filterNam_Id: input
+      };
+    });
+    filter(input, 'filterInput');
+  };
+
+  const filter = (toFilter, parent) => {
+    filteredArray = state.personnelData;
+    let departmentFilter = parent === 'filterDep' ? toFilter : state.filterDepartment;
+    let locationFilter = parent === 'filterLoc' ? toFilter : state.filterLocation;
+    let name_Id_Filter = parent === 'filterInput' ? toFilter : state.filterNam_Id;
+
+    if (typeof name_Id_Filter === 'string') {
+      name_Id_Filter = name_Id_Filter.charAt(0).toUpperCase() + name_Id_Filter.slice(1);
+    }
+
+    ;
+
+    if (locationFilter != 'World') {
+      filteredArray = filteredArray.filter(employeeArray => employeeArray[2] == locationFilter);
+    }
+
+    if (departmentFilter != 'All') {
+      filteredArray = filteredArray.filter(employeeArray => employeeArray[1] == departmentFilter);
+    }
+
+    if (name_Id_Filter !== '') {
+      filteredArray = filteredArray.filter(employeeArray => name_Id_Filter.includes(employeeArray[0].firstName) || name_Id_Filter.includes(employeeArray[0].lastName) || name_Id_Filter == employeeArray[0].id);
+    }
+
+    filteredArray.length == 0 ? console.log('nothing found') : console.log(filteredArray);
+    setState(prevState => {
+      return { ...prevState,
+        filteredArray: filteredArray
+      };
+    });
+  };
+
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
+    personnelData_fetch();
+  }, []);
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    id: "App",
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 156,
+      columnNumber: 5
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    id: "navBar",
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 157,
+      columnNumber: 7
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 158,
+      columnNumber: 9
+    }
+  }, "____Company Directory____")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    id: "main-container",
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 160,
+      columnNumber: 7
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    id: "search_filter",
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 161,
+      columnNumber: 9
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+    name: "filterLocation",
+    className: "select",
+    id: "filterLocation",
+    value: state.filterLocation,
+    onChange: e => selectLoc_handler(e),
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 162,
+      columnNumber: 11
+    }
+  }, [...locationFind].map(location => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    key: location,
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 164,
+      columnNumber: 15
+    }
+  }, location))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+    name: "Department",
+    className: "select",
+    id: "filterDepartment",
+    value: state.filterDepartment,
+    onChange: e => selectDep_handler(e),
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 167,
+      columnNumber: 11
+    }
+  }, [...departmentFind].map(department => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    key: department.department,
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 169,
+      columnNumber: 15
+    }
+  }, department.department))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 172,
+      columnNumber: 11
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    id: "filterName_Id",
+    className: "select",
+    type: "text",
+    value: state.filterNam_Id,
+    placeholder: "type in name / id",
+    onChange: e => inputChange(e),
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 172,
+      columnNumber: 17
+    }
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    id: "write-to-search_icon",
+    style: {
+      fontSize: '20px'
+    },
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 179,
+      columnNumber: 11
+    }
+  }, "\u270D")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Employees__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    render: state.test,
+    filteredArray: state.filteredArray,
+    city: state.city,
+    refetch: () => personnelData_fetch(),
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 182,
+      columnNumber: 9
+    }
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Location__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    Location: value => {
+      setState(prevState => {
+        return { ...prevState,
+          filterLocation: value
+        };
+      });
+      filter(value, 'filterLoc');
+    },
+    cities: locationFind,
+    filterLoc: state.filterLocation,
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 187,
+      columnNumber: 9
+    }
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Department__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    departments: departmentFind,
+    division: value => {
+      setState(prevState => {
+        return { ...prevState,
+          filterDepartment: value
+        };
+      });
+      filter(value, 'filterDep');
+    },
+    filterDep: state.filterDepartment,
+    __self: this,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 191,
+      columnNumber: 9
+    }
+  })));
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (App);
+
+/***/ }),
+
+/***/ "./src/Department.js":
+/*!***************************!*\
+  !*** ./src/Department.js ***!
+  \***************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var uuid__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! uuid */ "./node_modules/uuid/dist/esm-browser/index.js");
+var _jsxFileName = "C:\\Users\\Gaspard Loriot\\Desktop\\Coding_projects\\Visual_studio\\company_directory\\company_directory_app\\src\\Department.js";
+
+
+
+const Department = props => {
+  const departments = props.departments;
+  let filterDep = props.filterDep;
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    id: "department",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 11,
+      columnNumber: 9
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    id: "container",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 12,
+      columnNumber: 13
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 13,
+      columnNumber: 17
+    }
+  }, "Departments : ", props.filterDep), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
+    className: "small-card-list",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 14,
+      columnNumber: 17
+    }
+  }, [...departments].map(department => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("article", {
+    className: "small-card",
+    key: Object(uuid__WEBPACK_IMPORTED_MODULE_1__["v4"])(),
+    style: {
+      backgroundColor: department.department === filterDep || department.department === filterDep[0] ? '#8B0000' : ''
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 16,
+      columnNumber: 25
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", {
+    className: "card-header",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 18,
+      columnNumber: 29
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    style: {
+      color: department.department === filterDep || department.department === filterDep[0] ? 'white' : ''
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 19,
+      columnNumber: 33
+    }
+  }, department.department.substring(0, 12)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    type: "text",
+    placeholder: "update",
+    onClick: () => {
+      props.division([department.department]);
+    },
+    style: {
+      display: department.department === filterDep || department.department === filterDep[0] ? 'none' : ''
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 21,
+      columnNumber: 33
+    }
+  }, "Filter department")))))));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Department);
+
+/***/ }),
+
+/***/ "./src/Employees.js":
+/*!**************************!*\
+  !*** ./src/Employees.js ***!
+  \**************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var uuid__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! uuid */ "./node_modules/uuid/dist/esm-browser/index.js");
+var _jsxFileName = "C:\\Users\\Gaspard Loriot\\Desktop\\Coding_projects\\Visual_studio\\company_directory\\company_directory_app\\src\\Employees.js";
+
+
+
+const Employees = props => {
+  const [state, setState] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({
+    modal: false,
+    employee_on_modal: [{
+      id: 0,
+      firstName: 'placeholder',
+      lastName: '',
+      email: 'placeholder'
+    }, 'placeholder', 'To be defined'],
+    name: false,
+    department: false,
+    location: false,
+    email: false,
+    newFirstName: '',
+    newLastName: '',
+    newDepartment: '',
+    newLocation: '',
+    newEmail: '',
+    table: '',
+    field: '',
+    changeTo: ''
+  });
+  console.log(props);
+
+  const departmentFind = department => {
+    if (department === 'Human Resources') return 1;
+    if (department === 'Sales') return 2;
+    if (department === 'Marketing') return 3;
+    if (department === 'Legal') return 4;
+    if (department === 'Services') return 5;
+    if (department === 'R&D') return 6;
+    if (department === 'Product Management') return 7;
+    if (department === 'Training') return 8;
+    if (department === 'Support') return 9;
+    if (department === 'Engineering') return 10;
+    if (department === 'Accounting') return 11;
+    if (department === 'Business Development') return 12;else return null;
+  };
+
+  const filteredArray = props.filteredArray;
+  const modalEmployee = state.employee_on_modal;
+  const modalEmployee_main = modalEmployee[0];
+
+  const changeLastName = e => {
+    const newName = e.target.value;
+
+    if (modalEmployee_main.id !== 0) {
+      setState(prevState => {
+        return { ...prevState,
+          newLastName: newName,
+          table: 'PERSONNEL',
+          field: 'lastName',
+          changeTo: newName
+        };
+      });
+    } else {
+      setState(prevState => {
+        return { ...prevState,
+          newLastName: newName,
+          table: 'PERSONNEL',
+          field: 'lastName'
+        };
+      });
+    }
+  };
+
+  const changeFirstName = e => {
+    const newName = e.target.value;
+
+    if (modalEmployee_main.id !== 0) {
+      setState(prevState => {
+        return { ...prevState,
+          newFirstName: newName,
+          table: 'PERSONNEL',
+          field: 'firstName',
+          changeTo: newName
+        };
+      });
+    } else {
+      setState(prevState => {
+        return { ...prevState,
+          newFirstName: newName,
+          table: 'PERSONNEL',
+          field: 'firstName'
+        };
+      });
+    }
+  };
+
+  const changeDepartment = e => {
+    const newDepartment = e.target.value;
+    setState(prevState => {
+      return { ...prevState,
+        newDepartment: newDepartment,
+        table: 'PERSONNEL',
+        field: 'departmentID',
+        changeTo: departmentFind(newDepartment)
+      };
+    });
+    console.log(newDepartment);
+  };
+
+  const changeEmail = e => {
+    const newEmail = e.target.value;
+
+    if (modalEmployee_main.id !== 0) {
+      setState(prevState => {
+        return { ...prevState,
+          newEmail: newEmail,
+          table: 'PERSONNEL',
+          field: 'email',
+          changeTo: newEmail
+        };
+      });
+    } else {
+      setState(prevState => {
+        return { ...prevState,
+          newEmail: newEmail,
+          table: 'PERSONNEL',
+          field: 'email'
+        };
+      });
+    }
+
+    console.log(newEmail);
+  }; //Update employee data:
+  //Updating the table information to be filled
+
+
+  let upData = {
+    'table': state.table,
+    'field': state.field,
+    'id': modalEmployee_main.id,
+    'changeTo': state.changeTo
+  };
+  let options = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(upData)
+  };
+
+  const update = async () => {
+    if (state.changeTo) {
+      let response = await fetch('http://localhost:8081/update', options);
+      let data = await response.json();
+      props.refetch();
+      console.log(data);
+      alert('contents will update as card is closed');
+    } else {
+      alert('please select a valid department...');
+    }
+  }; //Deleting posts
+
+
+  const deleteEmp = async id => {
+    let response = await fetch(`http://localhost:8081/delete/${id}`);
+    let data = await response.json();
+    props.refetch();
+    console.log(data);
+    alert('contents will update as card is closed');
+  };
+
+  const addingData = {
+    id: '',
+    firstName: state.newFirstName,
+    lastName: state.newLastName,
+    jobTitle: '',
+    email: state.newEmail,
+    departmentID: state.changeTo
+  };
+  const addOptions = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(addingData)
+  };
+
+  const addEmployee = async () => {
+    if (state.changeTo) {
+      let response = await fetch('http://localhost:8081/add_employee', addOptions);
+      let data = await response.json();
+      console.log(data);
+      props.refetch();
+      alert('contents will update as card is closed');
+    } else {
+      alert('please select a valid department...');
+    }
+  };
+
+  const resetState = () => {
+    setState(prevState => {
+      return { ...prevState,
+        employee_on_modal: [{
+          id: 0,
+          firstName: 'placeholder',
+          lastName: '',
+          email: 'placeholder'
+        }, 'placeholder', 'To be defined'],
+        newFirstName: '',
+        newLastName: '',
+        newDepartment: '',
+        newLocation: '',
+        newEmail: '',
+        name: false,
+        department: false,
+        location: false,
+        email: false
+      };
+    });
+  };
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    id: "employees",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 171,
+      columnNumber: 5
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    id: "container",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 172,
+      columnNumber: 7
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    id: "employees-title",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 173,
+      columnNumber: 9
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 174,
+      columnNumber: 11
+    }
+  }, "Employee Data"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    id: "employee-adder",
+    onClick: () => setState(prevState => {
+      return { ...prevState,
+        modal: true,
+        name: true,
+        department: true,
+        email: true
+      };
+    }),
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 175,
+      columnNumber: 11
+    }
+  }, "Add Employee"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 176,
+      columnNumber: 11
+    }
+  }, "Employees:", filteredArray.length > 0 ? filteredArray.length : '  No result corresponding to criteria...')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
+    className: "card-list",
+    style: {
+      overflowX: filteredArray.length > 2 ? 'scroll' : 'hidden'
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 178,
+      columnNumber: 9
+    }
+  }, [...filteredArray].map(employee => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("article", {
+    className: "card",
+    key: Object(uuid__WEBPACK_IMPORTED_MODULE_1__["v4"])(),
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 180,
+      columnNumber: 13
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", {
+    className: "card-header",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 181,
+      columnNumber: 15
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    onClick: () => setState(prevState => {
+      return { ...prevState,
+        modal: true,
+        employee_on_modal: employee
+      };
+    }),
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 182,
+      columnNumber: 17
+    }
+  }, "Empl. details..."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 183,
+      columnNumber: 17
+    }
+  }, "__________"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 184,
+      columnNumber: 17
+    }
+  }, employee[0].email)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "card-author",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 186,
+      columnNumber: 15
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    className: "author-avatar",
+    href: "#",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 187,
+      columnNumber: 17
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    src: "./card-avatar.png",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 188,
+      columnNumber: 19
+    }
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("svg", {
+    className: "half-circle",
+    viewBox: "0 0 106 57",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 190,
+      columnNumber: 17
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", {
+    d: "M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 191,
+      columnNumber: 19
+    }
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "author-name",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 193,
+      columnNumber: 17
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "author-name-prefix",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 194,
+      columnNumber: 19
+    }
+  }, "id: ", employee[0].id), `${employee[0].firstName} ${employee[0].lastName}`)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "tags",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 198,
+      columnNumber: 15
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 199,
+      columnNumber: 17
+    }
+  }, employee[2]), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 200,
+      columnNumber: 17
+    }
+  }, employee[1]))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "modal-parent",
+    id: "modal-parent",
+    style: {
+      display: state.modal === true ? 'block' : 'none'
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 205,
+      columnNumber: 9
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "modal",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 206,
+      columnNumber: 11
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 207,
+      columnNumber: 13
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    id: "modal_content",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 208,
+      columnNumber: 15
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    id: "modal-content",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 209,
+      columnNumber: 17
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    id: "modal-title",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 210,
+      columnNumber: 19
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 210,
+      columnNumber: 42
+    }
+  }, "Employee Card"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 210,
+      columnNumber: 64
+    }
+  }, `___id:  ${modalEmployee_main.id}`)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 211,
+      columnNumber: 19
+    }
+  }, "Employee id: ", modalEmployee_main.id), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: "change-info",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 212,
+      columnNumber: 19
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    className: "change-button",
+    onClick: () => {
+      setState(prevState => {
+        return { ...prevState,
+          name: state.name ? false : true
+        };
+      });
+    },
+    style: {
+      display: modalEmployee_main.id !== 0 ? '' : 'none'
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 213,
+      columnNumber: 21
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    src: "./edit-icon.png",
+    className: "edit-icon",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 217,
+      columnNumber: 23
+    }
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+    style: {
+      display: state.name ? 'none' : 'block'
+    },
+    className: "names",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 219,
+      columnNumber: 21
+    }
+  }, `Name : ____${modalEmployee_main.firstName}  ${modalEmployee_main.lastName}`), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    id: "inputs",
+    style: {
+      display: state.name ? 'block' : 'none'
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 222,
+      columnNumber: 21
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    onChange: e => changeFirstName(e),
+    className: "disappear-element",
+    value: state.newFirstName,
+    placeholder: "Type in first Name...",
+    type: "text",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 223,
+      columnNumber: 23
+    }
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    onClick: () => update(),
+    style: {
+      display: modalEmployee_main.id !== 0 ? '' : 'none'
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 227,
+      columnNumber: 23
+    }
+  }, "Submit"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 227,
+      columnNumber: 136
+    }
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    onChange: e => changeLastName(e),
+    className: "disappear-element",
+    value: state.newLastName,
+    placeholder: "Type in last Name...",
+    type: "text",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 228,
+      columnNumber: 23
+    }
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    onClick: () => update(),
+    style: {
+      display: modalEmployee_main.id !== 0 ? '' : 'none'
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 232,
+      columnNumber: 23
+    }
+  }, "Submit"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: "change-info",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 235,
+      columnNumber: 19
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    className: "change-button",
+    onClick: () => {
+      setState(prevState => {
+        return { ...prevState,
+          department: state.department ? false : true
+        };
+      });
+    },
+    style: {
+      display: modalEmployee_main.id !== 0 ? '' : 'none'
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 236,
+      columnNumber: 21
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    src: "./edit-icon.png",
+    className: "edit-icon",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 240,
+      columnNumber: 23
+    }
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
+    style: {
+      display: state.department ? 'none' : 'block'
+    },
+    className: "appear-element",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 242,
+      columnNumber: 21
+    }
+  }, "Department : ", modalEmployee[1]), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    style: {
+      display: state.department ? 'block' : 'none'
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 243,
+      columnNumber: 21
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    onChange: e => changeDepartment(e),
+    className: "disappear-element",
+    value: state.newDepartment,
+    placeholder: "Add Department...",
+    type: "text",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 244,
+      columnNumber: 23
+    }
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    onClick: () => update(),
+    style: {
+      display: modalEmployee_main.id !== 0 ? '' : 'none'
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 245,
+      columnNumber: 23
+    }
+  }, "Submit"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: "change-info",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 248,
+      columnNumber: 19
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
+    className: "location",
+    style: {
+      marginTop: state.department ? '18px' : ''
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 249,
+      columnNumber: 21
+    }
+  }, "Location : __", modalEmployee[2])), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: "change-info",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 251,
+      columnNumber: 19
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    className: "change-button",
+    onClick: () => {
+      setState(prevState => {
+        return { ...prevState,
+          email: state.email ? false : true
+        };
+      });
+    },
+    style: {
+      display: modalEmployee_main.id !== 0 ? '' : 'none'
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 252,
+      columnNumber: 21
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    src: "./edit-icon.png",
+    className: "edit-icon",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 255,
+      columnNumber: 23
+    }
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
+    style: {
+      display: state.email ? 'none' : 'block'
+    },
+    className: "appear-element",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 257,
+      columnNumber: 21
+    }
+  }, "email : ________", modalEmployee_main.email), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    style: {
+      display: state.email ? 'block' : 'none'
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 258,
+      columnNumber: 21
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    onChange: e => changeEmail(e),
+    className: "disappear-element",
+    value: state.newEmail,
+    placeholder: "Type in new email...",
+    type: "email",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 259,
+      columnNumber: 23
+    }
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    onClick: () => update(),
+    style: {
+      display: modalEmployee_main.id !== 0 ? '' : 'none'
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 260,
+      columnNumber: 23
+    }
+  }, "Submit"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    src: `avatar_${modalEmployee_main.id % 2 ? 2 : 1}.png`,
+    id: "avatar",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 263,
+      columnNumber: 19
+    }
+  })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: "X",
+    id: "X",
+    draggable: "true",
+    onClick: () => {
+      setState(prevState => {
+        return { ...prevState,
+          modal: false
+        };
+      });
+      resetState();
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 267,
+      columnNumber: 13
+    }
+  }, "\xD7"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    id: "delete-button",
+    onClick: () => deleteEmp(modalEmployee_main.id),
+    style: {
+      display: modalEmployee_main.id !== 0 ? 'block' : 'none'
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 268,
+      columnNumber: 13
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    src: "./delete.png",
+    id: "delete",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 269,
+      columnNumber: 15
+    }
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 270,
+      columnNumber: 15
+    }
+  }, "delete")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    id: "add-button",
+    onClick: () => addEmployee(),
+    style: {
+      display: modalEmployee_main.id !== 0 ? 'none' : 'block'
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 272,
+      columnNumber: 13
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    src: "./add-employee.png",
+    id: "add",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 273,
+      columnNumber: 15
+    }
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 274,
+      columnNumber: 15
+    }
+  }, "Add..."))))));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Employees);
+
+/***/ }),
+
+/***/ "./src/Location.js":
+/*!*************************!*\
+  !*** ./src/Location.js ***!
+  \*************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var uuid__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! uuid */ "./node_modules/uuid/dist/esm-browser/index.js");
+var _jsxFileName = "C:\\Users\\Gaspard Loriot\\Desktop\\Coding_projects\\Visual_studio\\company_directory\\company_directory_app\\src\\Location.js";
+
+
+
+const Location = props => {
+  const cities = props.cities;
+  let filterLoc = props.filterLoc;
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    id: "location",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 11,
+      columnNumber: 9
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    id: "container",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 12,
+      columnNumber: 13
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 13,
+      columnNumber: 17
+    }
+  }, "Locations :  ", props.filterLoc), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
+    className: "small-card-list filt_location",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 14,
+      columnNumber: 17
+    }
+  }, [...cities].map(city => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("article", {
+    className: "small-card",
+    key: Object(uuid__WEBPACK_IMPORTED_MODULE_1__["v4"])(),
+    style: {
+      backgroundColor: city === filterLoc[0] || city === filterLoc ? '#20B2AA' : ''
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 16,
+      columnNumber: 25
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", {
+    className: "card-header",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 18,
+      columnNumber: 29
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    style: {
+      color: city === filterLoc[0] || city === filterLoc ? 'black' : ''
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 19,
+      columnNumber: 33
+    }
+  }, city), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    type: "text",
+    placeholder: "update",
+    onClick: () => {
+      props.Location([city]);
+    },
+    style: {
+      display: city === filterLoc[0] || city === filterLoc ? 'none' : ''
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 20,
+      columnNumber: 33
+    }
+  }, "Filter location")))))));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Location);
+
+/***/ }),
+
+/***/ "./src/css/App.css":
+/*!*************************!*\
+  !*** ./src/css/App.css ***!
+  \*************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../node_modules/css-loader/dist/cjs.js??ref--6-oneOf-3-1!../../node_modules/postcss-loader/src??postcss!./App.css */ "./node_modules/css-loader/dist/cjs.js?!./node_modules/postcss-loader/src/index.js?!./src/css/App.css");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(true) {
+	module.hot.accept(/*! !../../node_modules/css-loader/dist/cjs.js??ref--6-oneOf-3-1!../../node_modules/postcss-loader/src??postcss!./App.css */ "./node_modules/css-loader/dist/cjs.js?!./node_modules/postcss-loader/src/index.js?!./src/css/App.css", function() {
+		var newContent = __webpack_require__(/*! !../../node_modules/css-loader/dist/cjs.js??ref--6-oneOf-3-1!../../node_modules/postcss-loader/src??postcss!./App.css */ "./node_modules/css-loader/dist/cjs.js?!./node_modules/postcss-loader/src/index.js?!./src/css/App.css");
+
+		if(typeof newContent === 'string') newContent = [[module.i, newContent, '']];
+
+		var locals = (function(a, b) {
+			var key, idx = 0;
+
+			for(key in a) {
+				if(!b || a[key] !== b[key]) return false;
+				idx++;
+			}
+
+			for(key in b) idx--;
+
+			return idx === 0;
+		}(content.locals, newContent.locals));
+
+		if(!locals) throw new Error('Aborting CSS HMR due to changed css-modules locals.');
+
+		update(newContent);
+	});
+
+	module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+
+/***/ "./src/css/card.css":
+/*!**************************!*\
+  !*** ./src/css/card.css ***!
+  \**************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../node_modules/css-loader/dist/cjs.js??ref--6-oneOf-3-1!../../node_modules/postcss-loader/src??postcss!./card.css */ "./node_modules/css-loader/dist/cjs.js?!./node_modules/postcss-loader/src/index.js?!./src/css/card.css");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(true) {
+	module.hot.accept(/*! !../../node_modules/css-loader/dist/cjs.js??ref--6-oneOf-3-1!../../node_modules/postcss-loader/src??postcss!./card.css */ "./node_modules/css-loader/dist/cjs.js?!./node_modules/postcss-loader/src/index.js?!./src/css/card.css", function() {
+		var newContent = __webpack_require__(/*! !../../node_modules/css-loader/dist/cjs.js??ref--6-oneOf-3-1!../../node_modules/postcss-loader/src??postcss!./card.css */ "./node_modules/css-loader/dist/cjs.js?!./node_modules/postcss-loader/src/index.js?!./src/css/card.css");
+
+		if(typeof newContent === 'string') newContent = [[module.i, newContent, '']];
+
+		var locals = (function(a, b) {
+			var key, idx = 0;
+
+			for(key in a) {
+				if(!b || a[key] !== b[key]) return false;
+				idx++;
+			}
+
+			for(key in b) idx--;
+
+			return idx === 0;
+		}(content.locals, newContent.locals));
+
+		if(!locals) throw new Error('Aborting CSS HMR due to changed css-modules locals.');
+
+		update(newContent);
+	});
+
+	module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+
+/***/ "./src/css/index.css":
+/*!***************************!*\
+  !*** ./src/css/index.css ***!
+  \***************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../node_modules/css-loader/dist/cjs.js??ref--6-oneOf-3-1!../../node_modules/postcss-loader/src??postcss!./index.css */ "./node_modules/css-loader/dist/cjs.js?!./node_modules/postcss-loader/src/index.js?!./src/css/index.css");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(true) {
+	module.hot.accept(/*! !../../node_modules/css-loader/dist/cjs.js??ref--6-oneOf-3-1!../../node_modules/postcss-loader/src??postcss!./index.css */ "./node_modules/css-loader/dist/cjs.js?!./node_modules/postcss-loader/src/index.js?!./src/css/index.css", function() {
+		var newContent = __webpack_require__(/*! !../../node_modules/css-loader/dist/cjs.js??ref--6-oneOf-3-1!../../node_modules/postcss-loader/src??postcss!./index.css */ "./node_modules/css-loader/dist/cjs.js?!./node_modules/postcss-loader/src/index.js?!./src/css/index.css");
+
+		if(typeof newContent === 'string') newContent = [[module.i, newContent, '']];
+
+		var locals = (function(a, b) {
+			var key, idx = 0;
+
+			for(key in a) {
+				if(!b || a[key] !== b[key]) return false;
+				idx++;
+			}
+
+			for(key in b) idx--;
+
+			return idx === 0;
+		}(content.locals, newContent.locals));
+
+		if(!locals) throw new Error('Aborting CSS HMR due to changed css-modules locals.');
+
+		update(newContent);
+	});
+
+	module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+
+/***/ "./src/css/modal.css":
+/*!***************************!*\
+  !*** ./src/css/modal.css ***!
+  \***************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../node_modules/css-loader/dist/cjs.js??ref--6-oneOf-3-1!../../node_modules/postcss-loader/src??postcss!./modal.css */ "./node_modules/css-loader/dist/cjs.js?!./node_modules/postcss-loader/src/index.js?!./src/css/modal.css");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(true) {
+	module.hot.accept(/*! !../../node_modules/css-loader/dist/cjs.js??ref--6-oneOf-3-1!../../node_modules/postcss-loader/src??postcss!./modal.css */ "./node_modules/css-loader/dist/cjs.js?!./node_modules/postcss-loader/src/index.js?!./src/css/modal.css", function() {
+		var newContent = __webpack_require__(/*! !../../node_modules/css-loader/dist/cjs.js??ref--6-oneOf-3-1!../../node_modules/postcss-loader/src??postcss!./modal.css */ "./node_modules/css-loader/dist/cjs.js?!./node_modules/postcss-loader/src/index.js?!./src/css/modal.css");
+
+		if(typeof newContent === 'string') newContent = [[module.i, newContent, '']];
+
+		var locals = (function(a, b) {
+			var key, idx = 0;
+
+			for(key in a) {
+				if(!b || a[key] !== b[key]) return false;
+				idx++;
+			}
+
+			for(key in b) idx--;
+
+			return idx === 0;
+		}(content.locals, newContent.locals));
+
+		if(!locals) throw new Error('Aborting CSS HMR due to changed css-modules locals.');
+
+		update(newContent);
+	});
+
+	module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+
+/***/ "./src/css/small-card.css":
+/*!********************************!*\
+  !*** ./src/css/small-card.css ***!
+  \********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../node_modules/css-loader/dist/cjs.js??ref--6-oneOf-3-1!../../node_modules/postcss-loader/src??postcss!./small-card.css */ "./node_modules/css-loader/dist/cjs.js?!./node_modules/postcss-loader/src/index.js?!./src/css/small-card.css");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(true) {
+	module.hot.accept(/*! !../../node_modules/css-loader/dist/cjs.js??ref--6-oneOf-3-1!../../node_modules/postcss-loader/src??postcss!./small-card.css */ "./node_modules/css-loader/dist/cjs.js?!./node_modules/postcss-loader/src/index.js?!./src/css/small-card.css", function() {
+		var newContent = __webpack_require__(/*! !../../node_modules/css-loader/dist/cjs.js??ref--6-oneOf-3-1!../../node_modules/postcss-loader/src??postcss!./small-card.css */ "./node_modules/css-loader/dist/cjs.js?!./node_modules/postcss-loader/src/index.js?!./src/css/small-card.css");
+
+		if(typeof newContent === 'string') newContent = [[module.i, newContent, '']];
+
+		var locals = (function(a, b) {
+			var key, idx = 0;
+
+			for(key in a) {
+				if(!b || a[key] !== b[key]) return false;
+				idx++;
+			}
+
+			for(key in b) idx--;
+
+			return idx === 0;
+		}(content.locals, newContent.locals));
+
+		if(!locals) throw new Error('Aborting CSS HMR due to changed css-modules locals.');
+
+		update(newContent);
+	});
+
+	module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+
+/***/ "./src/index.js":
+/*!**********************!*\
+  !*** ./src/index.js ***!
+  \**********************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _css_index_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./css/index.css */ "./src/css/index.css");
+/* harmony import */ var _css_index_css__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_css_index_css__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _App__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./App */ "./src/App.js");
+var _jsxFileName = "C:\\Users\\Gaspard Loriot\\Desktop\\Coding_projects\\Visual_studio\\company_directory\\company_directory_app\\src\\index.js";
+
+
+
+
+react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(
+/*#__PURE__*/
+//<React.StrictMode>
+react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_App__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  __self: undefined,
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 10,
+    columnNumber: 5
+  }
+}), //</React.StrictMode>,
+document.getElementById('root'));
+
+/***/ }),
+
+/***/ 1:
+/*!**************************************************************************************************************!*\
+  !*** multi (webpack)/hot/dev-server.js ./node_modules/react-dev-utils/webpackHotDevClient.js ./src/index.js ***!
+  \**************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(/*! C:\Users\Gaspard Loriot\Desktop\Coding_projects\Visual_studio\company_directory\company_directory_app\node_modules\webpack\hot\dev-server.js */"./node_modules/webpack/hot/dev-server.js");
+__webpack_require__(/*! C:\Users\Gaspard Loriot\Desktop\Coding_projects\Visual_studio\company_directory\company_directory_app\node_modules\react-dev-utils\webpackHotDevClient.js */"./node_modules/react-dev-utils/webpackHotDevClient.js");
+module.exports = __webpack_require__(/*! C:\Users\Gaspard Loriot\Desktop\Coding_projects\Visual_studio\company_directory\company_directory_app\src\index.js */"./src/index.js");
+
+
+/***/ })
+
+},[[1,"runtime-main",1]]]);
+//# sourceMappingURL=main.chunk.js.map

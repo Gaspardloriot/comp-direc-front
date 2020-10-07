@@ -1,0 +1,872 @@
+webpackHotUpdate("main",{
+
+/***/ "./src/Employees.js":
+/*!**************************!*\
+  !*** ./src/Employees.js ***!
+  \**************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var uuid__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! uuid */ "./node_modules/uuid/dist/esm-browser/index.js");
+var _jsxFileName = "C:\\Users\\Gaspard Loriot\\Desktop\\Coding_projects\\Visual_studio\\company_directory\\company_directory_app\\src\\Employees.js";
+
+
+
+const Employees = props => {
+  const [state, setState] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({
+    modal: false,
+    employee_on_modal: [{
+      id: 0,
+      firstName: 'placeholder',
+      lastName: '',
+      email: 'placeholder'
+    }, 'placeholder', 'To be defined'],
+    name: false,
+    department: false,
+    location: false,
+    email: false,
+    newFirstName: '',
+    newLastName: '',
+    newDepartment: '',
+    newLocation: '',
+    newEmail: '',
+    table: '',
+    field: '',
+    changeTo: ''
+  });
+  console.log(props);
+
+  const departmentFind = department => {
+    if (department === 'Human Resources') return 1;
+    if (department === 'Sales') return 2;
+    if (department === 'Marketing') return 3;
+    if (department === 'Legal') return 4;
+    if (department === 'Services') return 5;
+    if (department === 'R&D') return 6;
+    if (department === 'Product Management') return 7;
+    if (department === 'Training') return 8;
+    if (department === 'Support') return 9;
+    if (department === 'Engineering') return 10;
+    if (department === 'Accounting') return 11;
+    if (department === 'Business Development') return 12;else return null;
+  };
+
+  const filteredArray = props.filteredArray;
+  const modalEmployee = state.employee_on_modal;
+  const modalEmployee_main = modalEmployee[0];
+
+  const changeLastName = e => {
+    const newName = e.target.value;
+
+    if (modalEmployee_main.id !== 0) {
+      setState(prevState => {
+        return { ...prevState,
+          newLastName: newName,
+          table: 'PERSONNEL',
+          field: 'lastName',
+          changeTo: newName
+        };
+      });
+    } else {
+      setState(prevState => {
+        return { ...prevState,
+          newLastName: newName,
+          table: 'PERSONNEL',
+          field: 'lastName'
+        };
+      });
+    }
+  };
+
+  const changeFirstName = e => {
+    const newName = e.target.value;
+
+    if (modalEmployee_main.id !== 0) {
+      setState(prevState => {
+        return { ...prevState,
+          newFirstName: newName,
+          table: 'PERSONNEL',
+          field: 'firstName',
+          changeTo: newName
+        };
+      });
+    } else {
+      setState(prevState => {
+        return { ...prevState,
+          newFirstName: newName,
+          table: 'PERSONNEL',
+          field: 'firstName'
+        };
+      });
+    }
+  };
+
+  const changeDepartment = e => {
+    const newDepartment = e.target.value;
+    setState(prevState => {
+      return { ...prevState,
+        newDepartment: newDepartment,
+        table: 'PERSONNEL',
+        field: 'departmentID',
+        changeTo: departmentFind(newDepartment)
+      };
+    });
+    console.log(newDepartment);
+  };
+
+  const changeEmail = e => {
+    const newEmail = e.target.value;
+
+    if (modalEmployee_main.id !== 0) {
+      setState(prevState => {
+        return { ...prevState,
+          newEmail: newEmail,
+          table: 'PERSONNEL',
+          field: 'email',
+          changeTo: newEmail
+        };
+      });
+    } else {
+      setState(prevState => {
+        return { ...prevState,
+          newEmail: newEmail,
+          table: 'PERSONNEL',
+          field: 'email'
+        };
+      });
+    }
+
+    console.log(newEmail);
+  }; //Update employee data:
+  //Updating the table information to be filled
+
+
+  let upData = {
+    'table': state.table,
+    'field': state.field,
+    'id': modalEmployee_main.id,
+    'changeTo': state.changeTo
+  };
+  let options = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(upData)
+  };
+
+  const update = async () => {
+    if (state.changeTo) {
+      let response = await fetch('http://localhost:8081/update', options);
+      let data = await response.json();
+      props.refetch();
+      console.log(data);
+      alert('contents will update as card is closed');
+    } else {
+      alert('please select a valid department...');
+    }
+  }; //Deleting posts
+
+
+  const deleteEmp = async id => {
+    let response = await fetch(`http://localhost:8081/delete/${id}`);
+    let data = await response.json();
+    props.refetch();
+    console.log(data);
+    alert('contents will update as card is closed');
+  };
+
+  const addingData = {
+    id: '',
+    firstName: state.newFirstName,
+    lastName: state.newLastName,
+    jobTitle: '',
+    email: state.newEmail,
+    departmentID: state.changeTo
+  };
+  const addOptions = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(addingData)
+  };
+
+  const addEmployee = async () => {
+    if (state.changeTo) {
+      let response = await fetch('http://localhost:8081/add_employee', addOptions);
+      let data = await response.json();
+      console.log(data);
+      props.refetch();
+      alert('contents will update as card is closed');
+    } else {
+      alert('please select a valid department...');
+    }
+  };
+
+  const resetState = () => {
+    setState(prevState => {
+      return { ...prevState,
+        employee_on_modal: [{
+          id: 0,
+          firstName: 'placeholder',
+          lastName: '',
+          email: 'placeholder'
+        }, 'placeholder', 'To be defined'],
+        newFirstName: '',
+        newLastName: '',
+        newDepartment: '',
+        newLocation: '',
+        newEmail: '',
+        name: false,
+        department: false,
+        location: false,
+        email: false
+      };
+    });
+  };
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    id: "employees",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 171,
+      columnNumber: 5
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    id: "container",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 172,
+      columnNumber: 7
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    id: "employees-title",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 173,
+      columnNumber: 9
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 174,
+      columnNumber: 11
+    }
+  }, "Employee Data"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    id: "employee-adder",
+    onClick: () => setState(prevState => {
+      return { ...prevState,
+        modal: true,
+        name: true,
+        department: true,
+        email: true
+      };
+    }),
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 175,
+      columnNumber: 11
+    }
+  }, "Add Employee"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 176,
+      columnNumber: 11
+    }
+  }, "Employees:", filteredArray.length > 0 ? filteredArray.length : '  No result corresponding to criteria...')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
+    className: "card-list",
+    style: {
+      overflowX: filteredArray.length > 2 ? 'scroll' : 'hidden'
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 178,
+      columnNumber: 9
+    }
+  }, [...filteredArray].map(employee => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("article", {
+    className: "card",
+    key: Object(uuid__WEBPACK_IMPORTED_MODULE_1__["v4"])(),
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 180,
+      columnNumber: 13
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", {
+    className: "card-header",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 181,
+      columnNumber: 15
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    onClick: () => setState(prevState => {
+      return { ...prevState,
+        modal: true,
+        employee_on_modal: employee
+      };
+    }),
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 182,
+      columnNumber: 17
+    }
+  }, "Empl. details..."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 183,
+      columnNumber: 17
+    }
+  }, "__________"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 184,
+      columnNumber: 17
+    }
+  }, employee[0].email)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "card-author",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 186,
+      columnNumber: 15
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    className: "author-avatar",
+    href: "#",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 187,
+      columnNumber: 17
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    src: "./card-avatar.png",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 188,
+      columnNumber: 19
+    }
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("svg", {
+    className: "half-circle",
+    viewBox: "0 0 106 57",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 190,
+      columnNumber: 17
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", {
+    d: "M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 191,
+      columnNumber: 19
+    }
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "author-name",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 193,
+      columnNumber: 17
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "author-name-prefix",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 194,
+      columnNumber: 19
+    }
+  }, "id: ", employee[0].id), `${employee[0].firstName} ${employee[0].lastName}`)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "tags",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 198,
+      columnNumber: 15
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 199,
+      columnNumber: 17
+    }
+  }, employee[2]), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 200,
+      columnNumber: 17
+    }
+  }, employee[1]))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "modal-parent",
+    id: "modal-parent",
+    style: {
+      display: state.modal === true ? 'block' : 'none'
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 205,
+      columnNumber: 9
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "modal",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 206,
+      columnNumber: 11
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 207,
+      columnNumber: 13
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    id: "modal_content",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 208,
+      columnNumber: 15
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    id: "modal-content",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 209,
+      columnNumber: 17
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    id: "modal-title",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 210,
+      columnNumber: 19
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 210,
+      columnNumber: 42
+    }
+  }, "Employee Card"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 210,
+      columnNumber: 64
+    }
+  }, `___id:  ${modalEmployee_main.id}`)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 211,
+      columnNumber: 19
+    }
+  }, "Employee id: ", modalEmployee_main.id), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: "change-info",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 212,
+      columnNumber: 19
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    className: "change-button",
+    onClick: () => {
+      setState(prevState => {
+        return { ...prevState,
+          name: state.name ? false : true
+        };
+      });
+    },
+    style: {
+      display: modalEmployee_main.id !== 0 ? '' : 'none'
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 213,
+      columnNumber: 21
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    src: "./edit-icon.png",
+    className: "edit-icon",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 217,
+      columnNumber: 23
+    }
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+    style: {
+      display: state.name ? 'none' : 'block'
+    },
+    className: "names",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 219,
+      columnNumber: 21
+    }
+  }, `Name : ____${modalEmployee_main.firstName}  ${modalEmployee_main.lastName}`), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    id: "inputs",
+    style: {
+      display: state.name ? 'block' : 'none'
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 222,
+      columnNumber: 21
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    onChange: e => changeFirstName(e),
+    className: "disappear-element",
+    value: state.newFirstName,
+    placeholder: "Type in first Name...",
+    type: "text",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 223,
+      columnNumber: 23
+    }
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    onClick: () => update(),
+    style: {
+      display: modalEmployee_main.id !== 0 ? '' : 'none'
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 227,
+      columnNumber: 23
+    }
+  }, "Submit"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 227,
+      columnNumber: 136
+    }
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    onChange: e => changeLastName(e),
+    className: "disappear-element",
+    value: state.newLastName,
+    placeholder: "Type in last Name...",
+    type: "text",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 228,
+      columnNumber: 23
+    }
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    onClick: () => update(),
+    style: {
+      display: modalEmployee_main.id !== 0 ? '' : 'none'
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 232,
+      columnNumber: 23
+    }
+  }, "Submit"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: "change-info",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 235,
+      columnNumber: 19
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    className: "change-button",
+    onClick: () => {
+      setState(prevState => {
+        return { ...prevState,
+          department: state.department ? false : true
+        };
+      });
+    },
+    style: {
+      display: modalEmployee_main.id !== 0 ? '' : 'none'
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 236,
+      columnNumber: 21
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    src: "./edit-icon.png",
+    className: "edit-icon",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 240,
+      columnNumber: 23
+    }
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
+    style: {
+      display: state.department ? 'none' : 'block'
+    },
+    className: "appear-element",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 242,
+      columnNumber: 21
+    }
+  }, "Department : ", modalEmployee[1]), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    style: {
+      display: state.department ? 'block' : 'none'
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 243,
+      columnNumber: 21
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    onChange: e => changeDepartment(e),
+    className: "disappear-element",
+    value: state.newDepartment,
+    placeholder: "Add Department...",
+    type: "text",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 244,
+      columnNumber: 23
+    }
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    onClick: () => update(),
+    style: {
+      display: modalEmployee_main.id !== 0 ? '' : 'none'
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 245,
+      columnNumber: 23
+    }
+  }, "Submit"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: "change-info",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 248,
+      columnNumber: 19
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
+    className: "location",
+    style: {
+      marginTop: state.department ? '18px' : ''
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 249,
+      columnNumber: 21
+    }
+  }, "Location : __", modalEmployee[2])), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: "change-info",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 251,
+      columnNumber: 19
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    className: "change-button",
+    onClick: () => {
+      setState(prevState => {
+        return { ...prevState,
+          email: state.email ? false : true
+        };
+      });
+    },
+    style: {
+      display: modalEmployee_main.id !== 0 ? '' : 'none'
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 252,
+      columnNumber: 21
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    src: "./edit-icon.png",
+    className: "edit-icon",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 255,
+      columnNumber: 23
+    }
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
+    style: {
+      display: state.email ? 'none' : 'block'
+    },
+    className: "appear-element",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 257,
+      columnNumber: 21
+    }
+  }, "email : ________", modalEmployee_main.email), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    style: {
+      display: state.email ? 'block' : 'none'
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 258,
+      columnNumber: 21
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    onChange: e => changeEmail(e),
+    className: "disappear-element",
+    value: state.newEmail,
+    placeholder: "Type in new email...",
+    type: "email",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 259,
+      columnNumber: 23
+    }
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    onClick: () => update(),
+    style: {
+      display: modalEmployee_main.id !== 0 ? '' : 'none'
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 260,
+      columnNumber: 23
+    }
+  }, "Submit"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    src: `avatar_${modalEmployee_main.id % 2 ? 2 : 1}.png`,
+    id: "avatar",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 263,
+      columnNumber: 19
+    }
+  })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: "X",
+    id: "X",
+    draggable: "true",
+    onClick: () => {
+      setState(prevState => {
+        return { ...prevState,
+          modal: false
+        };
+      });
+      resetState();
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 267,
+      columnNumber: 13
+    }
+  }, "\xD7"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    id: "delete-button",
+    onClick: () => deleteEmp(modalEmployee_main.id),
+    style: {
+      display: modalEmployee_main.id !== 0 ? 'block' : 'none'
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 268,
+      columnNumber: 13
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    src: "./delete.png",
+    id: "delete",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 269,
+      columnNumber: 15
+    }
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 270,
+      columnNumber: 15
+    }
+  }, "delete")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    id: "add-button",
+    onClick: () => addEmployee(),
+    style: {
+      display: modalEmployee_main.id !== 0 ? 'none' : 'block'
+    },
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 272,
+      columnNumber: 13
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    src: "./add-employee.png",
+    id: "add",
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 273,
+      columnNumber: 15
+    }
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    __self: undefined,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 274,
+      columnNumber: 15
+    }
+  }, "Add..."))))));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Employees);
+
+/***/ })
+
+})
+//# sourceMappingURL=main.2c30356125ab55c0c7cd.hot-update.js.map

@@ -1,0 +1,343 @@
+.modal-parent{
+  background-color: transparent;
+  position:fixed;
+  top:0;
+  left:0;
+  height:100vh;
+  width:100%;
+  display:none;
+  backdrop-filter:blur(4px);
+  z-index:2;
+}
+
+.modal{  
+  filter:none;
+  background:white;
+  width:700px;
+  height:350px;
+  padding:30px;
+  padding-bottom: 60px;
+  border-radius:20px;
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  color:#404040;
+  font-size:22px;
+  position:relative;
+  font-weight:lighter;
+  animation: 0.6s drop;  
+  border:2px solid gray;
+}
+@keyframes drop {
+  0%{
+    top:-100px;
+  }
+  
+  100%{
+top:50%;
+  }
+}
+
+@keyframes appears {
+  0%{
+    width:0px;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  
+  100%{
+ width:60%;
+ white-space: nowrap;
+ overflow: hidden;
+  }
+}
+
+
+
+#modal-content{
+  display:flex-column;
+  transition:0.5s;
+}
+
+#modal-title{
+  display:flex;
+  justify-content: center;
+  color: navy;
+}
+
+#avatar{
+  position:absolute;
+  top:100px;
+  right:35px;
+  height:180px;
+  width:auto;
+  background-color: #FF4500;
+  border-radius:50%;
+}
+
+.change-info{
+  display:flex;
+  align-items:baseline;
+}
+
+input{
+  background-color:transparent;
+  font-size:20px;
+  font-family: 'DM Mono', monospace;
+  border:none;
+  border-radius:none;
+  border-bottom: 1.5px solid navy;
+  margin-bottom: 10px;
+  
+}
+
+button{
+  padding-left:20px;
+  padding-right:20px;
+  border-radius:15px;
+  background: linear-gradient(90deg,teal,navy);
+  text-shadow: none;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  border-color:navy;
+  padding-top:5px;
+  padding-bottom:5px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor:pointer;
+}
+
+.names{
+  width:60%;
+  margin-bottom: 50px;
+  animation: appears 0.15s;
+}
+
+.appear-element{
+  animation : appears 0.15s;
+}
+
+.disappear-element{
+  animation : appears 0.085s;
+}
+
+
+
+.location{
+  margin-left:75px;
+}
+.change-button{
+  background: teal;
+  text-align: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  border:none;
+  margin-left: 15px;
+  cursor:pointer;
+  margin-right: 20px;
+}
+
+
+
+.edit-icon{
+  height:28px;
+  width:auto;
+  background-color:white;
+  border-radius:50%;
+  padding:2px;
+}
+
+#delete-button{
+  position:absolute;
+  top:325px;
+  right:85px;
+  padding-top:10px;
+  border:none;
+  background-color:tomato;
+}
+
+#delete-button:active{
+  outline:none;
+}
+
+#delete-button :hover{
+  background-color:#8B0000;
+}
+
+#delete{
+  height:35px;
+  width:auto;
+  background-color:#FE5353;
+  border-radius: 6px;
+  padding:12px;
+}
+
+#add-button{
+  position:absolute;
+  top:325px;
+  right:85px;
+  padding-top:10px;
+  border:none;
+}
+
+#add-button:active{
+  outline:none;
+}
+
+#add-button :hover{
+  background-color:#219421;
+}
+
+#add{
+  height:35px;
+  width:auto;
+  background-color:#32CD32;
+  border-radius: 6px;
+  padding:12px;
+}
+
+.X{
+  position:absolute;
+  right:20px;
+  top:5px;
+  font-size:30px;
+  cursor:pointer;
+  color:black; 
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+
+  .modal{  
+    filter:none;
+    background:white;
+    width:85vw;
+    height:60vh;
+    padding:5vw;
+    padding-bottom: 5vh;
+    border-radius:20px;
+    position:absolute;
+    top:55%;
+    left:50%;
+    color:#404040;
+    font-size:16px;
+    position:relative;
+    font-weight:lighter;
+    animation: 0.6s drop;  
+    border:2px solid gray;
+  }
+  input{
+  font-size:16px;  
+  margin-bottom: 10px;
+  width:50vw;
+  }
+
+  #avatar{
+    position:absolute;
+    top:10%;
+    right:7%;
+    height:50px;
+    width:auto;
+    background-color: #FF4500;
+    border-radius:50%;
+  }
+
+  #add-button{
+    position:absolute;
+    top:55%;
+    right:7%;
+    padding-top:10px;
+    border:none;
+    font-size: 12px;;
+  }
+
+  #add{
+    height:35px;
+    width:auto;
+    background-color:#32CD32;
+    border-radius: 6px;
+    padding:15%;
+  }
+
+  .location{
+    margin-left:13%;
+    font-size: 12px;;
+  }
+  .change-button{
+    width: 20px;
+    height: 20px;
+    font-size: 16px;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    border:none;
+    margin-left: 0%;
+    cursor:pointer;
+    margin-right: 2%;
+    border:0px;
+    background-color: white;    
+  }
+  
+  .names{
+    width:65%;
+    margin-bottom: 5vh;
+    animation: appears 0.15s;
+    font-size: 16px;
+  }
+  
+  .edit-icon{
+    height:14px;
+    width:auto;
+    background-color:white;
+    border-radius:50%;
+    border:2px solid black;
+    
+  }
+  
+  #delete-button{
+    position:absolute;
+    top:60%;
+    right:7%;
+    padding-top:10px;
+    border:none;
+    font-size: 12px;;
+    background-color:tomato;
+  }
+  
+  #delete-button:active{
+    outline:none;
+  }
+  
+  #delete-button :hover{
+    background-color:#8B0000;
+  }
+  
+  #delete{
+    height:25px;
+    width:auto;
+    border-radius: 6px;
+    padding:15%;
+    background-color:#FE5353;    
+    
+  }
+
+  .appear-element{
+    font-size:14px;
+  }
+
+  .modal button{
+   font-size: 10px;
+   padding:4px;
+  }
+}
+

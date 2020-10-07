@@ -1,0 +1,136 @@
+body {
+    padding: 0;
+    margin: 0;
+    background-color: white;
+    color: #17141d;
+    font-family: 'DM Mono', monospace;
+}
+
+a {
+    text-decoration: none;
+}
+
+.small-card-list {
+    display: flex;
+    padding: 3rem;
+    padding-bottom: 15px;
+    overflow-x: scroll;
+}
+
+.small-card-list::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+.small-card-list::-webkit-scrollbar-thumb {
+    background: white;
+    border-radius: 10px;
+    box-shadow: inset 2px 2px 2px hsla(0, 0%, 100%, .25), inset -2px -2px 2px rgba(0, 0, 0, .25);
+}
+
+.small-card-list::-webkit-scrollbar-track {
+    background: linear-gradient(90deg, #201c29, #201c29 1px, #17141d 0, #17141d);
+    border-radius: 10px;
+}
+
+
+.small-card {
+    height: 60px;
+    width: 275px;
+    min-width: 250px;
+    padding: 1.5rem;
+    border-radius: 16px;
+    background: white;
+    box-shadow: -1rem 0 1rem grey;
+    display: flex;
+    flex-direction: column;
+    transition: .2s;
+    margin: 0;
+    scroll-snap-align: start;
+    clear: both;
+    position: relative;
+}
+
+.small-card p {
+    font-size: 25px;
+    font-weight: 200;
+    margin-bottom: 10px;
+    color: gray;
+}
+
+.small-card :hover p {
+    color: orangered;
+}
+
+.small-card:focus-within~.small-card,
+.small-card:hover~.small-card {
+    transform: translateX(65px);
+}
+
+.small-card:hover {
+    transform: translateY(-0.5rem);
+    cursor: pointer;
+}
+
+.small-card:not(:first-child) {
+    margin-left: -130px;
+}
+
+
+.small-card-header {
+    margin-bottom: auto;
+}
+
+.small-card-header p {
+    font-size: 30px;
+    margin: 0 0 1rem;
+    color: #7a7a8c;
+}
+
+.small-card-header h2 {
+    font-size: 20px;
+    margin: .25rem 0 auto;
+    text-decoration: none;
+    color: inherit;
+    border: 0;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.small-card-header h2:hover {
+    background: linear-gradient(90deg, #ff8a00, #e52e71);
+    text-shadow: none;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+.filt_location {
+    overflow-x: hidden;
+}
+
+
+
+@media (min-width: 320px) and (max-width: 480px) {
+
+    .filt_location {
+        overflow-x: scroll;
+    }
+
+    .card-list {
+        display: flex;
+        padding: 1.25rem;
+        overflow-x: scroll;
+    }
+
+    .small-card-list {
+        display: flex;
+        padding: 1.25rem;
+        overflow-x: scroll;
+    }
+
+    .small-card{
+        min-width: 200px;
+        width:180px;
+    }
+}

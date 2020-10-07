@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<!-- saved from url=(0023)http://localhost:3000/# -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <link rel="icon" href="http://localhost:3000/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#000000">
+    <meta name="description" content="Web site created using create-react-app">
+    <link rel="apple-touch-icon" href="http://localhost:3000/logo192.png">
+    <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+    <link rel="manifest" href="http://localhost:3000/manifest.json">
+    <!--
+      Notice the use of  in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <title>React App</title>
+  <style type="text/css">body {
+  margin: 0;
+  padding:0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+</style><style type="text/css">
+
+body {
+    padding: 0;
+    margin: 0;
+    background-color:white ;
+    color: #17141d;
+    font-family: 'DM Mono', monospace;
+}
+
+a {
+    text-decoration: none;
+}
+
+.card-list {
+    display: flex;
+    padding: 3rem;
+    overflow-x: scroll;
+}
+
+.card-list::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+.card-list::-webkit-scrollbar-thumb {
+    background: white;
+    border-radius: 10px;
+    box-shadow: inset 2px 2px 2px hsla(0,0%,100%,.25), inset -2px -2px 2px rgba(0,0,0,.25);
+}
+
+.card-list::-webkit-scrollbar-track {
+    background: linear-gradient(90deg,#201c29,#201c29 1px,#17141d 0,#17141d);
+    border-radius: 10px;
+}
+
+
+.card {
+    height: 150px;
+    width: 250px;
+    min-width: 250px;
+    padding: 1.5rem;
+    padding-top:1rem;
+    padding-bottom: 2.25rem;
+    border-radius: 16px;
+    background: white;
+    box-shadow: -1rem 0 1rem grey;
+    display: flex;
+    flex-direction: column;
+    transition: .2s;
+    margin: 0;
+    scroll-snap-align: start;
+    clear: both;
+    position: relative;
+}
+
+.card:focus-within~.card, .card:hover~.card {
+    transform: translateX(135px);
+}
+
+.card:hover {
+    transform: translateY(-0.4rem);
+    cursor:pointer;
+}
+
+.card:not(:first-child) {
+    margin-left: -130px;
+}
+
+
+.card-header {
+    margin-bottom: auto;
+}
+
+.card-header p {
+    font-size: 14px;
+    margin: 0 0 0rem;
+    color: #7a7a8c;
+}
+
+.card-header h2 {
+    font-size: 12px;
+    margin: .25rem 0 auto;
+    text-decoration: none;
+    color: inherit;
+    border: 0;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.card-header h2:hover {
+    background: linear-gradient(90deg,teal,navy);
+    text-shadow: none;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+.card-author {
+    margin: 0.5rem 0 0;
+    display: grid;
+    grid-template-columns: 75px 1fr;
+    align-items: center;
+    position: relative;
+}
+
+.author-avatar {
+    grid-area: auto;
+    align-self: start;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.author-avatar img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;    
+    display: block;
+    overflow: hidden;
+    margin: 10px 10px;
+}
+
+.author-name {
+    grid-area: auto;
+    box-sizing: border-box;
+}
+
+.author-name-prefix {
+    font-style: normal;
+    font-weight: 700;
+    color: #7a7a8c;
+}
+
+.half-circle {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 48px;
+    fill: none;
+    stroke: #ff8a00;
+    stroke-width: 8;
+    stroke-linecap: round;
+    pointer-events: none;
+}
+
+.tags {
+    margin: 0.5rem 0 1rem;
+    padding: 0rem 0 1rem;
+    line-height: 2;
+    margin-bottom: 0;
+}
+
+.tags a {
+    display:inline-flex;
+    font-style: normal;
+    font-weight: 700;
+    font-size: .5rem;
+    color: #7a7a8c;
+    text-transform: uppercase;
+    font-size: .66rem;
+    border: 3px solid #28242f;
+    border-radius: 2rem;
+    padding: .2rem .85rem .25rem;
+    margin-left:0.15rem;
+    position: relative;
+}
+
+.tags a:hover {
+    background: linear-gradient(90deg,teal,navy);
+    text-shadow: none;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-box-decoration-break: clone;
+    background-clip: text;
+    border-color:navy;
+}</style><style type="text/css">body {
+    padding: 0;
+    margin: 0;
+    background-color: white;
+    color: #17141d;
+    font-family: 'DM Mono', monospace;
+}
+
+a {
+    text-decoration: none;
+}
+
+.small-card-list {
+    display: flex;
+    padding: 3rem;
+    padding-bottom: 15px;
+    overflow-x: scroll;
+}
+
+.small-card-list::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+.small-card-list::-webkit-scrollbar-thumb {
+    background: white;
+    border-radius: 10px;
+    box-shadow: inset 2px 2px 2px hsla(0, 0%, 100%, .25), inset -2px -2px 2px rgba(0, 0, 0, .25);
+}
+
+.small-card-list::-webkit-scrollbar-track {
+    background: linear-gradient(90deg, #201c29, #201c29 1px, #17141d 0, #17141d);
+    border-radius: 10px;
+}
+
+
+.small-card {
+    height: 60px;
+    width: 275px;
+    min-width: 250px;
+    padding: 1.5rem;
+    border-radius: 16px;
+    background: white;
+    box-shadow: -1rem 0 1rem grey;
+    display: flex;
+    flex-direction: column;
+    transition: .2s;
+    margin: 0;
+    scroll-snap-align: start;
+    clear: both;
+    position: relative;
+}
+
+.small-card p {
+    font-size: 25px;
+    font-weight: 200;
+    margin-bottom: 10px;
+    color: gray;
+}
+
+.small-card :hover p {
+    color: orangered;
+}
+
+.small-card:focus-within~.small-card,
+.small-card:hover~.small-card {
+    transform: translateX(65px);
+}
+
+.small-card:hover {
+    transform: translateY(-0.5rem);
+    cursor: pointer;
+}
+
+.small-card:not(:first-child) {
+    margin-left: -130px;
+}
+
+
+.small-card-header {
+    margin-bottom: auto;
+}
+
+.small-card-header p {
+    font-size: 30px;
+    margin: 0 0 1rem;
+    color: #7a7a8c;
+}
+
+.small-card-header h2 {
+    font-size: 20px;
+    margin: .25rem 0 auto;
+    text-decoration: none;
+    color: inherit;
+    border: 0;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.small-card-header h2:hover {
+    background: linear-gradient(90deg, #ff8a00, #e52e71);
+    text-shadow: none;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+.filt_location {
+    overflow-x: hidden;
+}
+
+
+
+@media (min-width: 320px) and (max-width: 480px) {
+
+    .filt_location {
+        overflow-x: scroll;
+    }
+
+    .card-list {
+        display: flex;
+        padding: 1.25rem;
+        overflow-x: scroll;
+    }
+
+    .small-card-list {
+        display: flex;
+        padding: 1.25rem;
+        overflow-x: scroll;
+    }
+
+    .small-card{
+        min-width: 200px;
+        width:180px;
+    }
+}</style><style type="text/css">.modal-parent{
+  background-color: transparent;
+  position:fixed;
+  top:0;
+  left:0;
+  height:100vh;
+  width:100%;
+  display:none;
+  -webkit-backdrop-filter:blur(4px);
+          backdrop-filter:blur(4px);
+  z-index:2;
+}
+
+.modal{  
+  filter:none;
+  background:white;
+  width:700px;
+  height:350px;
+  padding:30px;
+  padding-bottom: 60px;
+  border-radius:20px;
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  color:#404040;
+  font-size:22px;
+  position:relative;
+  font-weight:lighter;
+  animation: 0.6s drop;  
+  border:2px solid gray;
+}
+@keyframes drop {
+  0%{
+    top:-100px;
+  }
+  
+  100%{
+top:50%;
+  }
+}
+
+@keyframes appears {
+  0%{
+    width:0px;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  
+  100%{
+ width:60%;
+ white-space: nowrap;
+ overflow: hidden;
+  }
+}
+
+
+
+#modal-content{
+  display:flex-column;
+  transition:0.5s;
+}
+
+#modal-title{
+  display:flex;
+  justify-content: center;
+  color: navy;
+}
+
+#avatar{
+  position:absolute;
+  top:100px;
+  right:35px;
+  height:180px;
+  width:auto;
+  background-color: #FF4500;
+  border-radius:50%;
+}
+
+.change-info{
+  display:flex;
+  align-items:baseline;
+}
+
+input{
+  background-color:transparent;
+  font-size:20px;
+  font-family: 'DM Mono', monospace;
+  border:none;
+  border-radius:none;
+  border-bottom: 1.5px solid navy;
+  margin-bottom: 10px;
+  
+}
+
+button{
+  padding-left:20px;
+  padding-right:20px;
+  border-radius:15px;
+  background: linear-gradient(90deg,teal,navy);
+  text-shadow: none;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+          background-clip: text;
+  border-color:navy;
+  padding-top:5px;
+  padding-bottom:5px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor:pointer;
+}
+
+.names{
+  width:60%;
+  margin-bottom: 50px;
+  animation: appears 0.15s;
+}
+
+.appear-element{
+  animation : appears 0.15s;
+}
+
+.disappear-element{
+  animation : appears 0.085s;
+}
+
+
+
+.location{
+  margin-left:75px;
+}
+.change-button{
+  background: teal;
+  text-align: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  border:none;
+  margin-left: 15px;
+  cursor:pointer;
+  margin-right: 20px;
+}
+
+
+
+.edit-icon{
+  height:28px;
+  width:auto;
+  background-color:white;
+  border-radius:50%;
+  padding:2px;
+}
+
+#delete-button{
+  position:absolute;
+  top:325px;
+  right:85px;
+  padding-top:10px;
+  border:none;
+  background-color:tomato;
+}
+
+#delete-button:active{
+  outline:none;
+}
+
+#delete-button :hover{
+  background-color:#8B0000;
+}
+
+#delete{
+  height:35px;
+  width:auto;
+  background-color:#FE5353;
+  border-radius: 6px;
+  padding:12px;
+}
+
+#add-button{
+  position:absolute;
+  top:325px;
+  right:85px;
+  padding-top:10px;
+  border:none;
+}
+
+#add-button:active{
+  outline:none;
+}
+
+#add-button :hover{
+  background-color:#219421;
+}
+
+#add{
+  height:35px;
+  width:auto;
+  background-color:#32CD32;
+  border-radius: 6px;
+  padding:12px;
+}
+
+.X{
+  position:absolute;
+  right:20px;
+  top:5px;
+  font-size:30px;
+  cursor:pointer;
+  color:black; 
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+
+  .modal{  
+    filter:none;
+    background:white;
+    width:85vw;
+    height:60vh;
+    padding:5vw;
+    padding-bottom: 5vh;
+    border-radius:20px;
+    position:absolute;
+    top:55%;
+    left:50%;
+    color:#404040;
+    font-size:16px;
+    position:relative;
+    font-weight:lighter;
+    animation: 0.6s drop;  
+    border:2px solid gray;
+  }
+  input{
+  font-size:16px;  
+  margin-bottom: 10px;
+  width:50vw;
+  }
+
+  #avatar{
+    position:absolute;
+    top:10%;
+    right:7%;
+    height:50px;
+    width:auto;
+    background-color: #FF4500;
+    border-radius:50%;
+  }
+
+  #add-button{
+    position:absolute;
+    top:55%;
+    right:7%;
+    padding-top:10px;
+    border:none;
+    font-size: 12px;;
+  }
+
+  #add{
+    height:35px;
+    width:auto;
+    background-color:#32CD32;
+    border-radius: 6px;
+    padding:15%;
+  }
+
+  .location{
+    margin-left:13%;
+    font-size: 12px;;
+  }
+  .change-button{
+    width: 20px;
+    height: 20px;
+    font-size: 16px;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    border:none;
+    margin-left: 0%;
+    cursor:pointer;
+    margin-right: 2%;
+    border:0px;
+    background-color: white;    
+  }
+  
+  .names{
+    width:65%;
+    margin-bottom: 5vh;
+    animation: appears 0.15s;
+    font-size: 16px;
+  }
+  
+  .edit-icon{
+    height:14px;
+    width:auto;
+    background-color:white;
+    border-radius:50%;
+    border:2px solid black;
+    
+  }
+  
+  #delete-button{
+    position:absolute;
+    top:60%;
+    right:7%;
+    padding-top:10px;
+    border:none;
+    font-size: 12px;;
+    background-color:tomato;
+  }
+  
+  #delete-button:active{
+    outline:none;
+  }
+  
+  #delete-button :hover{
+    background-color:#8B0000;
+  }
+  
+  #delete{
+    height:25px;
+    width:auto;
+    border-radius: 6px;
+    padding:15%;
+    background-color:#FE5353;    
+    
+  }
+
+  .appear-element{
+    font-size:14px;
+  }
+
+  .modal button{
+   font-size: 10px;
+   padding:4px;
+  }
+}
+
+</style><style type="text/css">*{
+  margin-top: 0;
+  z-index:1;
+}
+
+#App{
+  width:100vw;
+}
+#navBar{
+  position:fixed;
+  width:100vw;
+  height:4vh;  
+  background-color: teal;
+  z-index:5;
+}
+
+#main-container{
+  display:flex-column;
+  width:100%;
+  padding-top:4vh;
+  background-color: #F5F5F5;
+  height:100%;
+  z-index:2;  
+}
+
+#search_filter{
+  display:flex;
+  justify-content: center;
+  align-items:center;
+  height:5.5vh;
+  background-image: linear-gradient(
+    to bottom, 
+    teal , whitesmoke
+  );
+  margin-bottom:1vh;
+}
+
+#employees{  
+  height:40vh;  
+}
+
+#location{
+  height:23vh;
+}
+
+#department{
+  height:25vh;
+}
+
+#container{
+  padding-left:10vw;
+  padding-right:5vw;
+}
+
+#employees-title{
+  display:flex;
+  align-items: center;
+}
+
+#employee-adder{
+  display:inline-block;
+  margin-left:20px;  
+  font-size: 16px;
+  padding-top:none;
+  margin-bottom:21px;
+  margin-top:none;
+  margin-right:25px;
+  border:3px solid navy;
+}
+
+#employee-adder:hover {
+  transition:0.2s;  
+  border:3px solid green;
+}
+
+.select{
+  background-color:transparent;
+  font-size:20px;
+  font-family: 'DM Mono', monospace;
+  border:none;
+  border-radius:none;
+  border-bottom: 2px solid navy;
+  margin-bottom: 10px;
+  color:black;
+  margin-right:20px;
+  cursor: pointer;
+}
+
+select option{
+  background-color: navy;
+  color:white;
+}
+
+
+
+
+@media (min-width: 320px) and (max-width: 480px) {
+    
+    #navBar{
+      position:fixed;
+      width:100%;
+      height:7vh;  
+      background-color: teal;
+      z-index:5;
+    }
+    
+    #main-container{
+      display:flex-column;
+      width:100%;
+      padding-top:7vh;
+      background-color: #F5F5F5;
+      height:100%;
+      z-index:2;  
+      padding-bottom: 5vh;;
+    }
+    
+    #search_filter{
+      display:flex;
+      align-items:flex-start;
+      height:6vh;
+      background-image: linear-gradient(
+        to bottom, 
+        teal , whitesmoke
+      );
+      margin-bottom:1vh;
+    }
+
+    .filt_location{
+      overflow-x: scroll;
+  }
+    
+    #employees{  
+      height:100%;
+      margin:none;  
+    }
+    
+    #location{
+      height:100%;
+    }
+    
+    #department{
+      height:100%;
+    }
+
+    #container{
+      padding-left:2vw;
+      padding-right:4vw;
+      padding-bottom: 3vh;
+    }
+
+    .select{      
+      font-size:16px;      
+      margin-bottom: 5px;
+      width:20vw;
+      margin-right:2vw;   
+    }
+
+    #filterName_Id{
+      width:40vw;
+    }
+
+    h1{
+      font-size: 16px;
+    }
+
+    h3{
+      font-size:12px;
+    }
+
+    #employees-title{
+      display:flex-column;
+      align-items: flex-start;
+    }
+
+    #employee-adder{
+      display:flex;
+      align-items: baseline;
+      margin-left:2vw;  
+      font-size: 12px;
+      padding-top:none;
+      margin-bottom:1vh;
+      margin-top:none;
+      margin-right:3vw;
+      border:3px solid navy;
+    }
+
+    #write-to-search_icon{
+      display:none;
+    }
+
+}
+</style><script charset="utf-8" src="./React App_files/main.708af48c3086d0eda6a5.hot-update.js.téléchargement"></script><script charset="utf-8" src="./React App_files/main.fb5566f770e6c080c9df.hot-update.js.téléchargement"></script><script charset="utf-8" src="./React App_files/main.c72bceb6d2b5f98c2ee9.hot-update.js.téléchargement"></script><script charset="utf-8" src="./React App_files/main.3720a17c46eb247aa923.hot-update.js.téléchargement"></script><script charset="utf-8" src="./React App_files/main.a3af3f6869181580d5e3.hot-update.js.téléchargement"></script><script charset="utf-8" src="./React App_files/main.2a9086c8d285f8868a81.hot-update.js.téléchargement"></script><script charset="utf-8" src="./React App_files/main.87a55fa586b0d8acf0c3.hot-update.js.téléchargement"></script><script charset="utf-8" src="./React App_files/main.be0ead0f1d2bc25e3186.hot-update.js.téléchargement"></script><script charset="utf-8" src="./React App_files/main.91952975311d35326017.hot-update.js.téléchargement"></script><script charset="utf-8" src="./React App_files/main.8d721e91a0106056e7db.hot-update.js.téléchargement"></script><script charset="utf-8" src="./React App_files/main.245dd617cf44b4ae7c28.hot-update.js.téléchargement"></script><script charset="utf-8" src="./React App_files/main.a5c8d2fce9ea39c274d5.hot-update.js.téléchargement"></script><script charset="utf-8" src="./React App_files/main.a40fda298b0153634afa.hot-update.js.téléchargement"></script><script charset="utf-8" src="./React App_files/main.67c310ba1d846347e548.hot-update.js.téléchargement"></script><script charset="utf-8" src="./React App_files/main.de9e27bdb33528789275.hot-update.js.téléchargement"></script><script charset="utf-8" src="./React App_files/main.0a0432940673b597672d.hot-update.js.téléchargement"></script><script charset="utf-8" src="./React App_files/main.0883cd14eb09b4a89c8e.hot-update.js.téléchargement"></script><script charset="utf-8" src="./React App_files/main.89b8501cd5c28bdb2d3f.hot-update.js.téléchargement"></script><script charset="utf-8" src="./React App_files/main.3ccf3819048c18dbd5ce.hot-update.js.téléchargement"></script><script charset="utf-8" src="./React App_files/main.bdf2db52bc4fab135bfb.hot-update.js.téléchargement"></script><script charset="utf-8" src="./React App_files/main.46c1f7d2fc540157146a.hot-update.js.téléchargement"></script><script charset="utf-8" src="./React App_files/main.96f3dfb506227c518b73.hot-update.js.téléchargement"></script><script charset="utf-8" src="./React App_files/main.0f61a39605f4fbc6ce5a.hot-update.js.téléchargement"></script><script charset="utf-8" src="./React App_files/main.257c21e86ca0745c2da2.hot-update.js.téléchargement"></script></head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"><div id="App"><div id="navBar"><h1>____Company Directory____</h1></div><div id="main-container"><div id="search_filter"><select name="filterLocation" class="select" id="filterLocation"><option>World</option><option>London</option><option>New York</option><option>Paris</option><option>Munich</option><option>Rome</option></select><select name="Department" class="select" id="filterDepartment"><option>All</option><option>Human Resources</option><option>Sales</option><option>Marketing</option><option>Legal</option><option>Services</option><option>R&amp;D</option><option>Product Management</option><option>Training</option><option>Support</option><option>Engineering</option><option>Accounting</option><option>Business Development</option></select><span><input id="filterName_Id" class="select" type="text" placeholder="type in name / id" value=""></span><div id="write-to-search_icon" style="font-size: 20px;">✍</div></div><div id="employees"><div id="container"><span id="employees-title"><h1>Employee Data</h1><button id="employee-adder">Add Employee</button><h3>Employees:111</h3></span><section class="card-list" style="overflow-x: scroll;"><article class="card"><header class="card-header"><button>Empl. details...</button><p>__________</p><h2>kkovnot1@google.nl</h2></header><div class="card-author"><a class="author-avatar" href="http://localhost:3000/#"><img src="./React App_files/card-avatar.png"></a><svg class="half-circle" viewBox="0 0 106 57"><path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path></svg><div class="author-name"><div class="author-name-prefix">id: 2</div>Kris Kovnot</div></div><div class="tags"><a>Paris</a><a>Business Development</a></div></article><article class="card"><header class="card-header"><button>Empl. details...</button><p>__________</p><h2>vkisbee2@nih.gov</h2></header><div class="card-author"><a class="author-avatar" href="http://localhost:3000/#"><img src="./React App_files/card-avatar.png"></a><svg class="half-circle" viewBox="0 0 106 57"><path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path></svg><div class="author-name"><div class="author-name-prefix">id: 3</div>Vera Kisbee</div></div><div class="tags"><a>New York</a><a>Sales</a></div></article><article class="card"><header class="card-header"><button>Empl. details...</button><p>__________</p><h2>aedgson3@wikispaces.com</h2></header><div class="card-author"><a class="author-avatar" href="http://localhost:3000/#"><img src="./React App_files/card-avatar.png"></a><svg class="half-circle" viewBox="0 0 106 57"><path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path></svg><div class="author-name"><div class="author-name-prefix">id: 4</div>Gaspard Edgson</div></div><div class="tags"><a>New York</a><a>Marketing</a></div></article><article class="card"><header class="card-header"><button>Empl. details...</button><p>__________</p><h2>bwittke4@yahoo.com</h2></header><div class="card-author"><a class="author-avatar" href="http://localhost:3000/#"><img src="./React App_files/card-avatar.png"></a><svg class="half-circle" viewBox="0 0 106 57"><path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path></svg><div class="author-name"><div class="author-name-prefix">id: 5</div>Bertie Wittke</div></div><div class="tags"><a>Munich</a><a>Legal</a></div></article><article class="card"><header class="card-header"><button>Empl. details...</button><p>__________</p><h2>dcossam5@washington.edu</h2></header><div class="card-author"><a class="author-avatar" href="http://localhost:3000/#"><img src="./React App_files/card-avatar.png"></a><svg class="half-circle" viewBox="0 0 106 57"><path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path></svg><div class="author-name"><div class="author-name-prefix">id: 6</div>Demetre Cossam</div></div><div class="tags"><a>Rome</a><a>Services</a></div></article><article class="card"><header class="card-header"><button>Empl. details...</button><p>__________</p><h2>amcgavigan6@wp.com</h2></header><div class="card-author"><a class="author-avatar" href="http://localhost:3000/#"><img src="./React App_files/card-avatar.png"></a><svg class="half-circle" viewBox="0 0 106 57"><path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path></svg><div class="author-name"><div class="author-name-prefix">id: 7</div>Annabela McGavigan</div></div><div class="tags"><a>Munich</a><a>Legal</a></div></article><article class="card"><header class="card-header"><button>Empl. details...</button><p>__________</p><h2>cmcandrew7@zdnet.com</h2></header><div class="card-author"><a class="author-avatar" href="http://localhost:3000/#"><img src="./React App_files/card-avatar.png"></a><svg class="half-circle" viewBox="0 0 106 57"><path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path></svg><div class="author-name"><div class="author-name-prefix">id: 8</div>Crichton McAndrew</div></div><div class="tags"><a>London</a><a>Human Resources</a></div></article><article class="card"><header class="card-header"><button>Empl. details...</button><p>__________</p><h2>cplain8@google.ca</h2></header><div class="card-author"><a class="author-avatar" href="http://localhost:3000/#"><img src="./React App_files/card-avatar.png"></a><svg class="half-circle" viewBox="0 0 106 57"><path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path></svg><div class="author-name"><div class="author-name-prefix">id: 9</div>Cordula Plain</div></div><div class="tags"><a>Rome</a><a>Services</a></div></article><article class="card"><header class="card-header"><button>Empl. details...</button><p>__________</p><h2>gmcdougle9@meetup.com</h2></header><div class="card-author"><a class="author-avatar" href="http://localhost:3000/#"><img src="./React App_files/card-avatar.png"></a><svg class="half-circle" viewBox="0 0 106 57"><path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path></svg><div class="author-name"><div class="author-name-prefix">id: 10</div>Glen McDougle</div></div><div class="tags"><a>Paris</a><a>R&amp;D</a></div></article><article class="card"><header class="card-header"><button>Empl. details...</button><p>__________</p><h2>taudasa@newsvine.com</h2></header><div class="card-author"><a class="author-avatar" href="http://localhost:3000/#"><img src="./React App_files/card-avatar.png"></a><svg class="half-circle" viewBox="0 0 106 57"><path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path></svg><div class="author-name"><div class="author-name-prefix">id: 11</div>Theo Audas</div></div><div class="tags"><a>Paris</a><a>Product Management</a></div></article><article class="card"><header class="card-header"><button>Empl. details...</button><p>__________</p><h2>sjollissb@wufoo.com</h2></header><div class="card-author"><a class="author-avatar" href="http://localhost:3000/#"><img src="./React App_files/card-avatar.png"></a><svg class="half-circle" viewBox="0 0 106 57"><path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path></svg><div class="author-name"><div class="author-name-prefix">id: 12</div>Spense Jolliss</div></div><div class="tags"><a>Munich</a><a>Training</a></div></article><article class="card"><header class="card-header"><button>Empl. details...</button><p>__________</p><h2>lcarlc@paginegialle.it</h2></header><div class="card-author"><a class="author-avatar" href="http://localhost:3000/#"><img src="./React App_files/card-avatar.png"></a><svg class="half-circle" viewBox="0 0 106 57"><path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path></svg><div class="author-name"><div class="author-name-prefix">id: 13</div>Leopold Carl</div></div><div class="tags"><a>Munich</a><a>Support</a></div></article><article class="card"><header class="card-header"><button>Empl. details...</button><p>__________</p><h2>bmacalland@github.com</h2></header><div class="card-author"><a class="author-avatar" href="http://localhost:3000/#"><img src="./React App_files/card-avatar.png"></a><svg class="half-circle" viewBox="0 0 106 57"><path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path></svg><div class="author-name"><div class="author-name-prefix">id: 14</div>Barr MacAllan</div></div><div class="tags"><a>Rome</a><a>Services</a></div></article><article class="card"><header class="card-header"><button>Empl. details...</button><p>__________</p><h2>scromere@imageshack.us</h2></header><div class="card-author"><a class="author-avatar" href="http://localhost:3000/#"><img src="./React App_files/card-avatar.png"></a><svg class="half-circle" viewBox="0 0 106 57"><path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path></svg><div class="author-name"><div class="author-name-prefix">id: 15</div>Suzie Cromer</div></div><div class="tags"><a>London</a><a>Human Resources</a></div></article><article class="card"><header class="card-header"><button>Empl. details...</button><p>__________</p><h2>tgisbournf@bloglines.com</h2></header><div class="card-author"><a class="author-avatar" href="http://localhost:3000/#"><img src="./React App_files/card-avatar.png"></a><svg class="half-circle" viewBox="0 0 106 57"><path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path></svg><div class="author-name"><div class="author-name-prefix">id: 16</div>Tracee Gisbourn</div></div><div class="tags"><a>Rome</a><a>Engineering</a></div></article><article class="card"><header class="card-header"><button>Empl. details...</button><p>__________</p><h2>tstquinting@chronoengine.com</h2></header><div class="card-author"><a class="author-avatar" href="http://localhost:3000/#"><img src="./React App_files/card-avatar.png"></a><svg class="half-circle" viewBox="0 0 106 57"><path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path></svg><div class="author-name"><div class="author-name-prefix">id: 17</div>Taylor St. Quintin</div></div><div class="tags"><a>Rome</a><a>Engineering</a></div></article><article class="card"><header class="card-header"><button>Empl. details...</button><p>__________</p><h2>lklassmannh@indiatimes.com</h2></header><div class="card-author"><a class="author-avatar" href="http://localhost:3000/#"><img src="./React App_files/card-avatar.png"></a><svg class="half-circle" viewBox="0 0 106 57"><path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path></svg><div class="author-name"><div class="author-name-prefix">id: 18</div>Lin Klassmann</div></div><div class="tags"><a>Rome</a><a>Engineering</a></div></article><article class="card"><header class="card-header"><button>Empl. details...</button><p>__________</p><h2>lfintophi@goo.gl</h2></header><div class="card-author"><a class="author-avatar" href="http://localhost:3000/#"><img src="./React App_files/card-avatar.png"></a><svg class="half-circle" viewBox="0 0 106 57"><path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path></svg><div class="author-name"><div class="author-name-prefix">id: 19</div>Lay Fintoph</div></div><div class="tags"><a>Rome</a><a>Accounting</a></div></article><article class="card"><header class="card-header"><button>Empl. details...</button><p>__________</p><h2>mflinnj@list-manage.com</h2></header><div class="card-author"><a class="author-avatar" href="http://localhost:3000/#"><img src="./React App_files/card-avatar.png"></a><svg class="half-circle" viewBox="0 0 106 57"><path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path></svg><div class="author-name"><div class="author-name-prefix">id: 20</div>Moishe Flinn</div></div><div class="tags"><a>Paris</a><a>Business Development</a></div></article><article class="card"><header class="card-header"><button>Empl. details...</button><p>__________</p><h2>gbickfordk@scientificamerican.com</h2></header><div class="card-author"><a class="author-avatar" href="http://localhost:3000/#"><img src="./React App_files/card-avatar.png"></a><svg class="half-circle" viewBox="0 0 106 57"><path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path></svg><div class="author-name"><div class="author-name-prefix">id: 21</div>Gay Bickford</div></div><div class="tags"><a>Paris</a><a>R&amp;D</a></div></article><article class="card"><header class="card-header"><button>Empl. details...</button><p>__________</p><h2>elindbackl@virginia.edu</h2></header><div class="card-author"><a class="author-avatar" href="http://localhost:3000/#"><img src="./React App_files/card-avatar.png"></a><svg class="half-circle" viewBox="0 0 106 57"><path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path></svg><div class="author-name"><div class="author-name-prefix">id: 22</div>Erik Lindback</div></div><div class="tags"><a>Munich</a><a>Training</a></div></article><article class="card"><header class="card-header"><button>Empl. details...</button><p>__________</p><h2>tacem@vinaora.com</h2></header><div class="card-author"><a class="author-avatar" href="http://localhost:3000/#"><img src="./React App_files/card-avatar.png"></a><svg class="half-circle" viewBox="0 0 106 57"><path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path></svg><div class="author-name"><div class="author-name-prefix">id: 23</div>Tamarra Ace</div></div><div class="tags"><a>Munich</a><a>Support</a></div></article><article class="card"><header class="card-header"><button>Empl. details...</button><p>__________</p><h2>brooksbyn@issuu.com</h2></header><div class="card-author"><a class="author-avatar" href="http://localhost:3000/#"><img src="./React App_files/card-avatar.png"></a><svg class="half-circle" viewBox="0 0 106 57"><path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path></svg><div class="author-name"><div class="author-name-prefix">id: 24</div>Barbara-anne Rooksby</div></div><div class="tags"><a>Paris</a><a>Business Development</a></div></article><article class="card"><header class="card-header"><button>Empl. details...</button><p>__________</p><h2>lallsupo@goo.ne.jp</h2></header><div class="card-author"><a class="author-avatar" href="http://localhost:3000/#"><img src="./React App_files/card-avatar.png"></a><svg class="half-circle" viewBox="0 0 106 57"><path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path></svg><div class="author-name"><div class="author-name-prefix">id: 25</div>Lucien Allsup</div></div><div class="tags"><a>Munich</a><a>Support</a></div></article><article class="card"><header class="card-header"><button>Empl. details...</button><p>__________</p><h2>jimlachp@google.it</h2></header><div class="card-author"><a class="author-avatar" href="http://localhost:3000/#"><img src="./React App_files/card-avatar.png"></a><svg class="half-circle" viewBox="0 0 106 57"><path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path></svg><div class="author-name"><div class="author-name-prefix">id: 26</div>Jackelyn Imlach</div></div><div class="tags"><a>Rome</a><a>Accounting</a></div></article><article class="card"><header class="card-header"><button>Empl. details...</button><p>__________</p><h2>vbootesq@oracle.com</h2></header><div class="card-author"><a class="author-avatar" href="http://localhost:3000/#"><img src="./React App_files/card-avatar.png"></a><svg class="half-circle" viewBox="0 0 106 57"><path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path></svg><div class="author-name"><div class="author-name-prefix">id: 27</div>Virge Bootes</div></div><div class="tags"><a>New York</a><a>Sales</a></div></article><article class="card"><header class="card-header"><button>Empl. details...</button><p>__________</p><h2>rmatasovr@4shared.com</h2></header><div class="card-author"><a class="author-avatar" href="http://localhost:3000/#"><img src="./React App_files/card-avatar.png"></a><svg class="half-circle" viewBox="0 0 106 57"><path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path></svg><div class="author-name"><div class="author-name-prefix">id: 28</div>Rafferty Matasov</div></div><div class="tags"><a>Munich</a><a>Legal</a></div></article><article class="card"><header class="card-header"><button>Empl. details...</button><p>__________</p><h2>vgoulders@phoca.cz</h2></header><div class="card-author"><a class="author-avatar" href="http://localhost:3000/#"><img src="./React App_files/card-avatar.png"></a><svg class="half-circle" viewBox="0 0 106 57"><path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path></svg><div class="author-name"><div class="author-name-prefix">id: 29</div>Vanya Goulder</div></div><div class="tags"><a>Munich</a><a>Support</a></div></article><article class="card"><header class="card-header"><button>Empl. details...</button><p>__________</p><h2>bmcgonaglet@microsoft.com</h2></header><div class="card-author"><a class="author-avatar" href="http://localhost:3000/#"><img src="./React App_files/card-avatar.png"></a><svg class="half-circle" viewBox="0 0 106 57"><path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path></svg><div class="author-name"><div class="author-name-prefix">id: 30</div>Bonita McGonagle</div></div><div class="tags"><a>London</a><a>Human Resources</a></div></article><article class="card"><header class="card-header"><button>Empl. details...</button><p>__________</p><h2>awhaleyu@bbb.org</h2></header><div class="card-author"><a class="author-avatar" href="http://localhost:3000/#"><img src="./React App_files/card-avatar.png"></a><svg class="half-circle" viewBox="0 0 106 57"><path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path></svg><div class="author-name"><div class="author-name-prefix">id: 31</div>Allx Whaley</div></div><div class="tags"><a>London</a><a>Human Resources</a></div></article><article class="card"><header class="card-header"><button>Empl. details...</button><p>__________</p><h2>mlernihanv@netscape.com</h2></header><div class="card-author"><a class="author-avatar" href="http://localhost:3000/#"><img src="./React App_files/card-avatar.png"></a><svg class="half-circle" viewBox="0 0 106 57"><path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path></svg><div class="author-name"><div class="author-name-prefix">id: 32</div>Mavis Lernihan</div></div><div class="tags"><a>Rome</a><a>Services</a></div></article><article class="card"><header class="card-header"><button>Empl. details...</button><p>__________</p><h2>vdurlingw@goo.gl</h2></header><div class="card-author"><a class="author-avatar" href="http://localhost:3000/#"><img src="./React App_files/card-avatar.png"></a><svg class="half-circle" viewBox="0 0 106 57"><path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path></svg><div class="author-name"><div class="author-name-prefix">id: 33</div>Vern Durling</div></div><div class="tags"><a>London</a><a>Human Resources</a></div></article><article class="card"><header class="card-header"><button>Empl. details...</button><p>__________</p><h2>mminchix@smugmug.com</h2></header><div class="card-author"><a class="author-avatar" href="http://localhost:3000/#"><img src="./React App_files/card-avatar.png"></a><svg class="half-circle" viewBox="0 0 106 57"><path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path></svg><div class="author-name"><div class="author-name-prefix">id: 34</div>Myles Minchi</div></div><div class="tags"><a>Paris</a><a>Product Management</a></div></article><article class="card"><header class="card-header"><button>Empl. details...</button><p>__________</p><h2>acoleridgey@nbcnews.com</h2></header><div class="card-author"><a class="author-avatar" href="http://localhost:3000/#"><img src="./React App_files/card-avatar.png"></a><svg class="half-circle" viewBox="0 0 106 57"><path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path></svg><div class="author-name"><div class="author-name-prefix">id: 35</div>Anitra Coleridge</div></div><div class="tags"><a>Paris</a><a>R&amp;D</a></div></article><article class="card"><header class="card-header"><button>Empl. details...</button><p>__________</p><h2>abrewsterz@businesswire.com</h2></header><div class="card-author"><a class="author-avatar" href="http://localhost:3000/#"><img src="./React App_files/card-avatar.png"></a><svg class="half-circle" viewBox="0 0 106 57"><path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path></svg><div class="author-name"><div class="author-name-prefix">id: 36</div>Ailis Brewster</div></div><div class="tags"><a>Paris</a><a>Product Management</a></div></article><article class="card"><header class="card-header"><button>Empl. details...</button><p>__________</p><h2>rtute10@pinterest.com</h2></header><div class="card-author"><a class="author-avatar" href="http://localhost:3000/#"><img src="./React App_files/card-avatar.png"></a><svg class="half-circle" viewBox="0 0 106 57"><path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path></svg><div class="author-name"><div class="author-name-prefix">id: 37</div>Rahal Tute</div></div><div class="tags"><a>Paris</a><a>R&amp;D</a></div></article><article class="card"><header class="card-header"><button>Empl. details...</button><p>__________</p><h2>wblonden11@spiegel.de</h2></header><div class="card-author"><a class="author-avatar" href="http://localhost:3000/#"><img src="./React App_files/card-avatar.png"></a><svg class="half-circle" viewBox="0 0 106 57"><path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path></svg><div class="author-name"><div class="author-name-prefix">id: 38</div>Warner Blonden</div></div><div class="tags"><a>Paris</a><a>Business Development</a></div></article><article class="card"><header class="card-header"><button>Empl. details...</button><p>__________</p><h2>mcanner12@eepurl.com</h2></header><div class="card-author"><a class="author-avatar" href="http://localhost:3000/#"><img src="./React App_files/card-avatar.png"></a><svg class="half-circle" viewBox="0 0 106 57"><path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path></svg><div class="author-name"><div class="author-name-prefix">id: 39</div>Melvyn Canner</div></div><div class="tags"><a>Munich</a><a>Legal</a></div></article><article class="card"><header class="card-header"><button>Empl. details...</button><p>__________</p><h2>rgiampietro13@theguardian.com</h2></header><div class="card-author"><a class="author-avatar" href="http://localhost:3000/#"><img src="./React App_files/card-avatar.png"></a><svg class="half-circle" viewBox="0 0 106 57"><path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path></svg><div class="author-name"><div class="author-name-prefix">id: 40</div>Ryann Giampietro</div></div><div class="tags"><a>Munich</a><a>Legal</a></div></article><article class="card"><header class="card-header"><button>Empl. details...</button><p>__________</p><h2>hjefferys14@jimdo.com</h2></header><div class="card-author"><a class="author-avatar" href="http://localhost:3000/#"><img src="./React App_files/card-avatar.png"></a><svg class="half-circle" viewBox="0 0 106 57"><path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path></svg><div class="author-name"><div class="author-name-prefix">id: 41</div>Harwell Jefferys</div></div><div class="tags"><a>Rome</a><a>Engineering</a></div></article><article class="card"><header class="card-header"><button>Empl. details...</button><p>__________</p><h2>lbuss15@51.la</h2></header><div class="card-author"><a class="author-avatar" href="http://localhost:3000/#"><img src="./React App_files/card-avatar.png"></a><svg class="half-circle" viewBox="0 0 106 57"><path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path></svg><div class="author-name"><div class="author-name-prefix">id: 42</div>Lanette Buss</div></div><div class="tags"><a>Munich</a><a>Legal</a></div></article><article class="card"><header class="card-header"><button>Empl. details...</button><p>__________</p><h2>lreddington16@w3.org</h2></header><div class="card-author"><a class="author-avatar" href="http://localhost:3000/#"><img src="./React App_files/card-avatar.png"></a><svg class="half-circle" viewBox="0 0 106 57"><path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path></svg><div class="author-name"><div class="author-name-prefix">id: 43</div>Lissie Reddington</div></div><div class="tags"><a>Munich</a><a>Support</a></div></article><article class="card"><header class="card-header"><button>Empl. details...</button><p>__________</p><h2>dbraidford17@google.com.br</h2></header><div class="card-author"><a class="author-avatar" href="http://localhost:3000/#"><img src="./React App_files/card-avatar.png"></a><svg class="half-circle" viewBox="0 0 106 57"><path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path></svg><div class="author-name"><div class="author-name-prefix">id: 44</div>Dore Braidford</div></div><div class="tags"><a>Rome</a><a>Accounting</a></div></article><article class="card"><header class="card-header"><button>Empl. details...</button><p>__________</p><h2>ldifranceshci18@mediafire.com</h2></header><div class="card-author"><a class="author-avatar" href="http://localhost:3000/#"><img src="./React App_files/card-avatar.png"></a><svg class="half-circle" viewBox="0 0 106 57"><path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path></svg><div class="author-name"><div class="author-name-prefix">id: 45</div>Lizabeth Di Franceshci</div></div><div class="tags"><a>Munich</a><a>Training</a></div></article><article class="card"><header class="card-header"><button>Empl. details...</button><p>__________</p><h2>fsharland19@myspace.com</h2></header><div class="card-author"><a class="author-avatar" href="http://localhost:3000/#"><img src="./React App_files/card-avatar.png"></a><svg class="half-circle" viewBox="0 0 106 57"><path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path></svg><div class="author-name"><div class="author-name-prefix">id: 46</div>Felic Sharland</div></div><div class="tags"><a>Paris</a><a>Business Development</a></div></article><article class="card"><header class="card-header"><button>Empl. details...</button><p>__________</p><h2>dquail1a@vimeo.com</h2></header><div class="card-author"><a class="author-avatar" href="http://localhost:3000/#"><img src="./React App_files/card-avatar.png"></a><svg class="half-circle" viewBox="0 0 106 57"><path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path></svg><div class="author-name"><div class="author-name-prefix">id: 47</div>Duff Quail</div></div><div class="tags"><a>Munich</a><a>Support</a></div></article><article class="card"><header class="card-header"><button>Empl. details...</button><p>__________</p><h2>bshivell1b@un.org</h2></header><div class="card-author"><a class="author-avatar" href="http://localhost:3000/#"><img src="./React App_files/card-avatar.png"></a><svg class="half-circle" viewBox="0 0 106 57"><path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path></svg><div class="author-name"><div class="author-name-prefix">id: 48</div>Brendis Shivell</div></div><div class="tags"><a>London</a><a>Human Resources</a></div></article><article class="card"><header class="card-header"><button>Empl. details...</button><p>__________</p><h2>nschimaschke1c@hexun.com</h2></header><div class="card-author"><a class="author-avatar" href="http://localhost:3000/#"><img src="./React App_files/card-avatar.png"></a><svg class="half-circle" viewBox="0 0 106 57"><path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path></svg><div class="author-name"><div class="author-name-prefix">id: 49</div>Nevile Schimaschke</div></div><div class="tags"><a>Rome</a><a>Engineering</a></div></article><article class="card"><header class="card-header"><button>Empl. details...</button><p>__________</p><h2>jcalbaithe1d@netvibes.com</h2></header><div class="card-author"><a class="author-avatar" href="http://localhost:3000/#"><img src="./React App_files/card-avatar.png"></a><svg class="half-circle" viewBox="0 0 106 57"><path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path></svg><div class="author-name"><div class="author-name-prefix">id: 50</div>Jon Calbaithe</div></div><div class="tags"><a>Munich</a><a>Legal</a></div></article><article class="card"><header class="card-header"><button>Empl. details...</button><p>__________</p><h2>edarben1e@mapquest.com</h2></header><div class="card-author"><a class="author-avatar" href="http://localhost:3000/#"><img src="./React App_files/card-avatar.png"></a><svg class="half-circle" viewBox="0 0 106 57"><path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path></svg><div class="author-name"><div class="author-name-prefix">id: 51</div>Emmery Darben</div></div><div class="tags"><a>Rome</a><a>Engineering</a></div></article><article class="card"><header class="card-header"><button>Empl. details...</button><p>__________</p><h2>swhitesel1f@nasa.gov</h2></header><div class="card-author"><a class="author-avatar" href="http://localhost:3000/#"><img src="./React App_files/card-avatar.png"></a><svg class="half-circle" viewBox="0 0 106 57"><path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path></svg><div class="author-name"><div class="author-name-prefix">id: 52</div>Staford Whitesel</div></div><div class="tags"><a>Paris</a><a>R&amp;D</a></div></article><article class="card"><header class="card-header"><button>Empl. details...</button><p>__________</p><h2>bhawkslee1g@hubpages.com</h2></header><div class="card-author"><a class="author-avatar" href="http://localhost:3000/#"><img src="./React App_files/card-avatar.png"></a><svg class="half-circle" viewBox="0 0 106 57"><path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path></svg><div class="author-name"><div class="author-name-prefix">id: 53</div>Benjamin Hawkslee</div></div><div class="tags"><a>Paris</a><a>Product Management</a></div></article><article class="card"><header class="card-header"><button>Empl. details...</button><p>__________</p><h2>mspeer1h@tripod.com</h2></header><div class="card-author"><a class="author-avatar" href="http://localhost:3000/#"><img src="./React App_files/card-avatar.png"></a><svg class="half-circle" viewBox="0 0 106 57"><path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path></svg><div class="author-name"><div class="author-name-prefix">id: 54</div>Myrle Speer</div></div><div class="tags"><a>New York</a><a>Marketing</a></div></article><article class="card"><header class="card-header"><button>Empl. details...</button><p>__________</p><h2>mbanfield1i@angelfire.com</h2></header><div class="card-author"><a class="author-avatar" href="http://localhost:3000/#"><img src="./React App_files/card-avatar.png"></a><svg class="half-circle" viewBox="0 0 106 57"><path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path></svg><div class="author-name"><div class="author-name-prefix">id: 55</div>Matthus Banfield</div></div><div class="tags"><a>New York</a><a>Marketing</a></div></article><article class="card"><header class="card-header"><button>Empl. details...</button><p>__________</p><h2>adrance1j@omniture.com</h2></header><div class="card-author"><a class="author-avatar" href="http://localhost:3000/#"><img src="./React App_files/card-avatar.png"></a><svg class="half-circle" viewBox="0 0 106 57"><path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path></svg><div class="author-name"><div class="author-name-prefix">id: 56</div>Annadiana Drance</div></div><div class="tags"><a>New York</a><a>Marketing</a></div></article><article class="card"><header class="card-header"><button>Empl. details...</button><p>__________</p><h2>rfandrey1k@bbc.co.uk</h2></header><div class="card-author"><a class="author-avatar" href="http://localhost:3000/#"><img src="./React App_files/card-avatar.png"></a><svg class="half-circle" viewBox="0 0 106 57"><path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path></svg><div class="author-name"><div class="author-name-prefix">id: 57</div>Rinaldo Fandrey</div></div><div class="tags"><a>New York</a><a>Sales</a></div></article><article class="card"><header class="card-header"><button>Empl. details...</button><p>__________</p><h2>rstandering1l@cocolog-nifty.com</h2></header><div class="card-author"><a class="author-avatar" href="http://localhost:3000/#"><img src="./React App_files/card-avatar.png"></a><svg class="half-circle" viewBox="0 0 106 57"><path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path></svg><div class="author-name"><div class="author-name-prefix">id: 58</div>Roanna Standering</div></div><div class="tags"><a>New York</a><a>Marketing</a></div></article><article class="card"><header class="card-header"><button>Empl. details...</button><p>__________</p><h2>lfattorini1m@geocities.jp</h2></header><div class="card-author"><a class="author-avatar" href="http://localhost:3000/#"><img src="./React App_files/card-avatar.png"></a><svg class="half-circle" viewBox="0 0 106 57"><path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path></svg><div class="author-name"><div class="author-name-prefix">id: 59</div>Lorrie Fattorini</div></div><div class="tags"><a>Munich</a><a>Support</a></div></article><article class="card"><header class="card-header"><button>Empl. details...</button><p>__________</p><h2>tandrassy1n@bigcartel.com</h2></header><div class="card-author"><a class="author-avatar" href="http://localhost:3000/#"><img src="./React App_files/card-avatar.png"></a><svg class="half-circle" viewBox="0 0 106 57"><path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path></svg><div class="author-name"><div class="author-name-prefix">id: 60</div>Talbot Andrassy</div></div><div class="tags"><a>Munich</a><a>Legal</a></div></article><article class="card"><header class="card-header"><button>Empl. details...</button><p>__________</p><h2>comannion1o@ameblo.jp</h2></header><div class="card-author"><a class="author-avatar" href="http://localhost:3000/#"><img src="./React App_files/card-avatar.png"></a><svg class="half-circle" viewBox="0 0 106 57"><path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path></svg><div class="author-name"><div class="author-name-prefix">id: 61</div>Cindi O'Mannion</div></div><div class="tags"><a>Rome</a><a>Accounting</a></div></article><article class="card"><header class="card-header"><button>Empl. details...</button><p>__________</p><h2>pmullineux1p@webmd.com</h2></header><div class="card-author"><a class="author-avatar" href="http://localhost:3000/#"><img src="./React App_files/card-avatar.png"></a><svg class="half-circle" viewBox="0 0 106 57"><path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path></svg><div class="author-name"><div class="author-name-prefix">id: 62</div>Pancho Mullineux</div></div><div class="tags"><a>London</a><a>Human Resources</a></div></article><article class="card"><header class="card-header"><button>Empl. details...</button><p>__________</p><h2>cpeyntue1q@amazon.co.jp</h2></header><div class="card-author"><a class="author-avatar" href="http://localhost:3000/#"><img src="./React App_files/card-avatar.png"></a><svg class="half-circle" viewBox="0 0 106 57"><path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path></svg><div class="author-name"><div class="author-name-prefix">id: 63</div>Cynthy Peyntue</div></div><div class="tags"><a>Paris</a><a>R&amp;D</a></div></article><article class="card"><header class="card-header"><button>Empl. details...</button><p>__________</p><h2>kchristal1r@behance.net</h2></header><div class="card-author"><a class="author-avatar" href="http://localhost:3000/#"><img src="./React App_files/card-avatar.png"></a><svg class="half-circle" viewBox="0 0 106 57"><path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path></svg><div class="author-name"><div class="author-name-prefix">id: 64</div>Kristine Christal</div></div><div class="tags"><a>Munich</a><a>Training</a></div></article><article class="card"><header class="card-header"><button>Empl. details...</button><p>__________</p><h2>dreboulet1s@360.cn</h2></header><div class="card-author"><a class="author-avatar" href="http://localhost:3000/#"><img src="./React App_files/card-avatar.png"></a><svg class="half-circle" viewBox="0 0 106 57"><path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path></svg><div class="author-name"><div class="author-name-prefix">id: 65</div>Dniren Reboulet</div></div><div class="tags"><a>Paris</a><a>Product Management</a></div></article><article class="card"><header class="card-header"><button>Empl. details...</button><p>__________</p><h2>anapier1t@sciencedirect.com</h2></header><div class="card-author"><a class="author-avatar" href="http://localhost:3000/#"><img src="./React App_files/card-avatar.png"></a><svg class="half-circle" viewBox="0 0 106 57"><path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path></svg><div class="author-name"><div class="author-name-prefix">id: 66</div>Aggy Napier</div></div><div class="tags"><a>New York</a><a>Marketing</a></div></article><article class="card"><header class="card-header"><button>Empl. details...</button><p>__________</p><h2>ghessay1u@exblog.jp</h2></header><div class="card-author"><a class="author-avatar" href="http://localhost:3000/#"><img src="./React App_files/card-avatar.png"></a><svg class="half-circle" viewBox="0 0 106 57"><path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path></svg><div class="author-name"><div class="author-name-prefix">id: 67</div>Gayleen Hessay</div></div><div class="tags"><a>Munich</a><a>Legal</a></div></article><article class="card"><header class="card-header"><button>Empl. details...</button><p>__________</p><h2>csnoden1v@so-net.ne.jp</h2></header><div class="card-author"><a class="author-avatar" href="http://localhost:3000/#"><img src="./React App_files/card-avatar.png"></a><svg class="half-circle" viewBox="0 0 106 57"><path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path></svg><div class="author-name"><div class="author-name-prefix">id: 68</div>Cull Snoden</div></div><div class="tags"><a>London</a><a>Human Resources</a></div></article><article class="card"><header class="card-header"><button>Empl. details...</button><p>__________</p><h2>vcrocombe1w@mtv.com</h2></header><div class="card-author"><a class="author-avatar" href="http://localhost:3000/#"><img src="./React App_files/card-avatar.png"></a><svg class="half-circle" viewBox="0 0 106 57"><path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path></svg><div class="author-name"><div class="author-name-prefix">id: 69</div>Vlad Crocombe</div></div><div class="tags"><a>Paris</a><a>Product Management</a></div></article><article class="card"><header class="card-header"><button>Empl. details...</button><p>__________</p><h2>gjoisce1x@google.com.au</h2></header><div class="card-author"><a class="author-avatar" href="http://localhost:3000/#"><img src="./React App_files/card-avatar.png"></a><svg class="half-circle" viewBox="0 0 106 57"><path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path></svg><div class="author-name"><div class="author-name-prefix">id: 70</div>Georgeanna Joisce</div></div><div class="tags"><a>Paris</a><a>R&amp;D</a></div></article><article class="card"><header class="card-header"><button>Empl. details...</button><p>__________</p><h2>uberthomieu1y@un.org</h2></header><div class="card-author"><a class="author-avatar" href="http://localhost:3000/#"><img src="./React App_files/card-avatar.png"></a><svg class="half-circle" viewBox="0 0 106 57"><path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path></svg><div class="author-name"><div class="author-name-prefix">id: 71</div>Ursola Berthomieu</div></div><div class="tags"><a>Munich</a><a>Legal</a></div></article><article class="card"><header class="card-header"><button>Empl. details...</button><p>__________</p><h2>mmckirdy1z@ovh.net</h2></header><div class="card-author"><a class="author-avatar" href="http://localhost:3000/#"><img src="./React App_files/card-avatar.png"></a><svg class="half-circle" viewBox="0 0 106 57"><path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path></svg><div class="author-name"><div class="author-name-prefix">id: 72</div>Mair McKirdy</div></div><div class="tags"><a>London</a><a>Human Resources</a></div></article><article class="card"><header class="card-header"><button>Empl. details...</button><p>__________</p><h2>erunnalls20@spiegel.de</h2></header><div class="card-author"><a class="author-avatar" href="http://localhost:3000/#"><img src="./React App_files/card-avatar.png"></a><svg class="half-circle" viewBox="0 0 106 57"><path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path></svg><div class="author-name"><div class="author-name-prefix">id: 73</div>Erma Runnalls</div></div><div class="tags"><a>Munich</a><a>Training</a></div></article><article class="card"><header class="card-header"><button>Empl. details...</button><p>__________</p><h2>hgallone21@hostgator.com</h2></header><div class="card-author"><a class="author-avatar" href="http://localhost:3000/#"><img src="./React App_files/card-avatar.png"></a><svg class="half-circle" viewBox="0 0 106 57"><path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path></svg><div class="author-name"><div class="author-name-prefix">id: 74</div>Heida Gallone</div></div><div class="tags"><a>Rome</a><a>Engineering</a></div></article><article class="card"><header class="card-header"><button>Empl. details...</button><p>__________</p><h2>cdenge22@canalblog.com</h2></header><div class="card-author"><a class="author-avatar" href="http://localhost:3000/#"><img src="./React App_files/card-avatar.png"></a><svg class="half-circle" viewBox="0 0 106 57"><path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path></svg><div class="author-name"><div class="author-name-prefix">id: 75</div>Christina Denge</div></div><div class="tags"><a>Paris</a><a>Business Development</a></div></article><article class="card"><header class="card-header"><button>Empl. details...</button><p>__________</p><h2>wfredi23@gizmodo.com</h2></header><div class="card-author"><a class="author-avatar" href="http://localhost:3000/#"><img src="./React App_files/card-avatar.png"></a><svg class="half-circle" viewBox="0 0 106 57"><path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path></svg><div class="author-name"><div class="author-name-prefix">id: 76</div>Wilone Fredi</div></div><div class="tags"><a>Paris</a><a>Product Management</a></div></article><article class="card"><header class="card-header"><button>Empl. details...</button><p>__________</p><h2>sbolderstone24@globo.com</h2></header><div class="card-author"><a class="author-avatar" href="http://localhost:3000/#"><img src="./React App_files/card-avatar.png"></a><svg class="half-circle" viewBox="0 0 106 57"><path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path></svg><div class="author-name"><div class="author-name-prefix">id: 77</div>Stormie Bolderstone</div></div><div class="tags"><a>Rome</a><a>Accounting</a></div></article><article class="card"><header class="card-header"><button>Empl. details...</button><p>__________</p><h2>dpool25@vistaprint.com</h2></header><div class="card-author"><a class="author-avatar" href="http://localhost:3000/#"><img src="./React App_files/card-avatar.png"></a><svg class="half-circle" viewBox="0 0 106 57"><path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path></svg><div class="author-name"><div class="author-name-prefix">id: 78</div>Darryl Pool</div></div><div class="tags"><a>Rome</a><a>Accounting</a></div></article><article class="card"><header class="card-header"><button>Empl. details...</button><p>__________</p><h2>nmager26@nifty.com</h2></header><div class="card-author"><a class="author-avatar" href="http://localhost:3000/#"><img src="./React App_files/card-avatar.png"></a><svg class="half-circle" viewBox="0 0 106 57"><path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path></svg><div class="author-name"><div class="author-name-prefix">id: 79</div>Nikolas Mager</div></div><div class="tags"><a>Rome</a><a>Services</a></div></article><article class="card"><header class="card-header"><button>Empl. details...</button><p>__________</p><h2>fgresty28@networkadvertising.org</h2></header><div class="card-author"><a class="author-avatar" href="http://localhost:3000/#"><img src="./React App_files/card-avatar.png"></a><svg class="half-circle" viewBox="0 0 106 57"><path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path></svg><div class="author-name"><div class="author-name-prefix">id: 81</div>Field Gresty</div></div><div class="tags"><a>Munich</a><a>Legal</a></div></article><article class="card"><header class="card-header"><button>Empl. details...</button><p>__________</p><h2>mtremoulet29@sciencedaily.com</h2></header><div class="card-author"><a class="author-avatar" href="http://localhost:3000/#"><img src="./React App_files/card-avatar.png"></a><svg class="half-circle" viewBox="0 0 106 57"><path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path></svg><div class="author-name"><div class="author-name-prefix">id: 82</div>Martina Tremoulet</div></div><div class="tags"><a>New York</a><a>Marketing</a></div></article><article class="card"><header class="card-header"><button>Empl. details...</button><p>__________</p><h2>rivanyutin2a@mozilla.org</h2></header><div class="card-author"><a class="author-avatar" href="http://localhost:3000/#"><img src="./React App_files/card-avatar.png"></a><svg class="half-circle" viewBox="0 0 106 57"><path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path></svg><div class="author-name"><div class="author-name-prefix">id: 83</div>Robena Ivanyutin</div></div><div class="tags"><a>New York</a><a>Sales</a></div></article><article class="card"><header class="card-header"><button>Empl. details...</button><p>__________</p><h2>rcorner2b@qq.com</h2></header><div class="card-author"><a class="author-avatar" href="http://localhost:3000/#"><img src="./React App_files/card-avatar.png"></a><svg class="half-circle" viewBox="0 0 106 57"><path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path></svg><div class="author-name"><div class="author-name-prefix">id: 84</div>Reagen Corner</div></div><div class="tags"><a>Rome</a><a>Accounting</a></div></article><article class="card"><header class="card-header"><button>Empl. details...</button><p>__________</p><h2>esulter2c@nature.com</h2></header><div class="card-author"><a class="author-avatar" href="http://localhost:3000/#"><img src="./React App_files/card-avatar.png"></a><svg class="half-circle" viewBox="0 0 106 57"><path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path></svg><div class="author-name"><div class="author-name-prefix">id: 85</div>Eveleen Sulter</div></div><div class="tags"><a>Paris</a><a>R&amp;D</a></div></article><article class="card"><header class="card-header"><button>Empl. details...</button><p>__________</p><h2>cdunbobbin2d@feedburner.com</h2></header><div class="card-author"><a class="author-avatar" href="http://localhost:3000/#"><img src="./React App_files/card-avatar.png"></a><svg class="half-circle" viewBox="0 0 106 57"><path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path></svg><div class="author-name"><div class="author-name-prefix">id: 86</div>Christy Dunbobbin</div></div><div class="tags"><a>Munich</a><a>Training</a></div></article><article class="card"><header class="card-header"><button>Empl. details...</button><p>__________</p><h2>wlansley2e@alibaba.com</h2></header><div class="card-author"><a class="author-avatar" href="http://localhost:3000/#"><img src="./React App_files/card-avatar.png"></a><svg class="half-circle" viewBox="0 0 106 57"><path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path></svg><div class="author-name"><div class="author-name-prefix">id: 87</div>Winthrop Lansley</div></div><div class="tags"><a>Munich</a><a>Training</a></div></article><article class="card"><header class="card-header"><button>Empl. details...</button><p>__________</p><h2>linsley2f@friendfeed.com</h2></header><div class="card-author"><a class="author-avatar" href="http://localhost:3000/#"><img src="./React App_files/card-avatar.png"></a><svg class="half-circle" viewBox="0 0 106 57"><path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path></svg><div class="author-name"><div class="author-name-prefix">id: 88</div>Lissa Insley</div></div><div class="tags"><a>New York</a><a>Marketing</a></div></article><article class="card"><header class="card-header"><button>Empl. details...</button><p>__________</p><h2>srisebarer2g@patch.com</h2></header><div class="card-author"><a class="author-avatar" href="http://localhost:3000/#"><img src="./React App_files/card-avatar.png"></a><svg class="half-circle" viewBox="0 0 106 57"><path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path></svg><div class="author-name"><div class="author-name-prefix">id: 89</div>Shell Risebarer</div></div><div class="tags"><a>Rome</a><a>Engineering</a></div></article><article class="card"><header class="card-header"><button>Empl. details...</button><p>__________</p><h2>cliddyard2h@com.com</h2></header><div class="card-author"><a class="author-avatar" href="http://localhost:3000/#"><img src="./React App_files/card-avatar.png"></a><svg class="half-circle" viewBox="0 0 106 57"><path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path></svg><div class="author-name"><div class="author-name-prefix">id: 90</div>Gaspard Loriot-Boserup</div></div><div class="tags"><a>New York</a><a>Sales</a></div></article><article class="card"><header class="card-header"><button>Empl. details...</button><p>__________</p><h2>bfooks2i@utexas.edu</h2></header><div class="card-author"><a class="author-avatar" href="http://localhost:3000/#"><img src="./React App_files/card-avatar.png"></a><svg class="half-circle" viewBox="0 0 106 57"><path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path></svg><div class="author-name"><div class="author-name-prefix">id: 91</div>Brendan Fooks</div></div><div class="tags"><a>New York</a><a>Sales</a></div></article><article class="card"><header class="card-header"><button>Empl. details...</button><p>__________</p><h2>etace2j@hatena.ne.jp</h2></header><div class="card-author"><a class="author-avatar" href="http://localhost:3000/#"><img src="./React App_files/card-avatar.png"></a><svg class="half-circle" viewBox="0 0 106 57"><path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path></svg><div class="author-name"><div class="author-name-prefix">id: 92</div>Edmund Tace</div></div><div class="tags"><a>Munich</a><a>Support</a></div></article><article class="card"><header class="card-header"><button>Empl. details...</button><p>__________</p><h2>ktomasini2k@cnbc.com</h2></header><div class="card-author"><a class="author-avatar" href="http://localhost:3000/#"><img src="./React App_files/card-avatar.png"></a><svg class="half-circle" viewBox="0 0 106 57"><path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path></svg><div class="author-name"><div class="author-name-prefix">id: 93</div>Ki Tomasini</div></div><div class="tags"><a>Rome</a><a>Engineering</a></div></article><article class="card"><header class="card-header"><button>Empl. details...</button><p>__________</p><h2>cmcgettrick2l@simplemachines.org</h2></header><div class="card-author"><a class="author-avatar" href="http://localhost:3000/#"><img src="./React App_files/card-avatar.png"></a><svg class="half-circle" viewBox="0 0 106 57"><path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path></svg><div class="author-name"><div class="author-name-prefix">id: 94</div>Chadd McGettrick</div></div><div class="tags"><a>Rome</a><a>Engineering</a></div></article><article class="card"><header class="card-header"><button>Empl. details...</button><p>__________</p><h2>dbaudi2m@last.fm</h2></header><div class="card-author"><a class="author-avatar" href="http://localhost:3000/#"><img src="./React App_files/card-avatar.png"></a><svg class="half-circle" viewBox="0 0 106 57"><path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path></svg><div class="author-name"><div class="author-name-prefix">id: 95</div>Dulcie Baudi</div></div><div class="tags"><a>New York</a><a>Marketing</a></div></article><article class="card"><header class="card-header"><button>Empl. details...</button><p>__________</p><h2>bmowbray2n@cbslocal.com</h2></header><div class="card-author"><a class="author-avatar" href="http://localhost:3000/#"><img src="./React App_files/card-avatar.png"></a><svg class="half-circle" viewBox="0 0 106 57"><path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path></svg><div class="author-name"><div class="author-name-prefix">id: 96</div>Barnebas Mowbray</div></div><div class="tags"><a>London</a><a>Human Resources</a></div></article><article class="card"><header class="card-header"><button>Empl. details...</button><p>__________</p><h2>sanker2o@hud.gov</h2></header><div class="card-author"><a class="author-avatar" href="http://localhost:3000/#"><img src="./React App_files/card-avatar.png"></a><svg class="half-circle" viewBox="0 0 106 57"><path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path></svg><div class="author-name"><div class="author-name-prefix">id: 97</div>Stefanie Anker</div></div><div class="tags"><a>Rome</a><a>Services</a></div></article><article class="card"><header class="card-header"><button>Empl. details...</button><p>__________</p><h2>sdeverall2q@ow.ly</h2></header><div class="card-author"><a class="author-avatar" href="http://localhost:3000/#"><img src="./React App_files/card-avatar.png"></a><svg class="half-circle" viewBox="0 0 106 57"><path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path></svg><div class="author-name"><div class="author-name-prefix">id: 99</div>Sinclare Deverall</div></div><div class="tags"><a>Paris</a><a>R&amp;D</a></div></article><article class="card"><header class="card-header"><button>Empl. details...</button><p>__________</p><h2>sjohncey2r@bluehost.com</h2></header><div class="card-author"><a class="author-avatar" href="http://localhost:3000/#"><img src="./React App_files/card-avatar.png"></a><svg class="half-circle" viewBox="0 0 106 57"><path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path></svg><div class="author-name"><div class="author-name-prefix">id: 100</div>Shae Johncey</div></div><div class="tags"><a>Rome</a><a>Engineering</a></div></article><article class="card"><header class="card-header"><button>Empl. details...</button><p>__________</p><h2>bdp@gmail.com</h2></header><div class="card-author"><a class="author-avatar" href="http://localhost:3000/#"><img src="./React App_files/card-avatar.png"></a><svg class="half-circle" viewBox="0 0 106 57"><path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path></svg><div class="author-name"><div class="author-name-prefix">id: 484121</div>Bertrand Dupontoir</div></div><div class="tags"><a>Rome</a><a>Services</a></div></article><article class="card"><header class="card-header"><button>Empl. details...</button><p>__________</p><h2>bdp@gmail.com</h2></header><div class="card-author"><a class="author-avatar" href="http://localhost:3000/#"><img src="./React App_files/card-avatar.png"></a><svg class="half-circle" viewBox="0 0 106 57"><path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path></svg><div class="author-name"><div class="author-name-prefix">id: 610422</div>Bertrand Dupontoir</div></div><div class="tags"><a>Rome</a><a>Services</a></div></article><article class="card"><header class="card-header"><button>Empl. details...</button><p>__________</p><h2>bdp@gmail.com</h2></header><div class="card-author"><a class="author-avatar" href="http://localhost:3000/#"><img src="./React App_files/card-avatar.png"></a><svg class="half-circle" viewBox="0 0 106 57"><path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path></svg><div class="author-name"><div class="author-name-prefix">id: 148791</div>Bertrand Dupontoir</div></div><div class="tags"><a>Rome</a><a>Services</a></div></article><article class="card"><header class="card-header"><button>Empl. details...</button><p>__________</p><h2>bdp@gmail.com</h2></header><div class="card-author"><a class="author-avatar" href="http://localhost:3000/#"><img src="./React App_files/card-avatar.png"></a><svg class="half-circle" viewBox="0 0 106 57"><path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path></svg><div class="author-name"><div class="author-name-prefix">id: 718755</div>Jean Dupontoir</div></div><div class="tags"><a>Rome</a><a>Services</a></div></article><article class="card"><header class="card-header"><button>Empl. details...</button><p>__________</p><h2>bdp@gmail.com</h2></header><div class="card-author"><a class="author-avatar" href="http://localhost:3000/#"><img src="./React App_files/card-avatar.png"></a><svg class="half-circle" viewBox="0 0 106 57"><path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path></svg><div class="author-name"><div class="author-name-prefix">id: 524750</div>Bertrand Dupontoir</div></div><div class="tags"><a>Rome</a><a>Services</a></div></article><article class="card"><header class="card-header"><button>Empl. details...</button><p>__________</p><h2>bdp@gmail.com</h2></header><div class="card-author"><a class="author-avatar" href="http://localhost:3000/#"><img src="./React App_files/card-avatar.png"></a><svg class="half-circle" viewBox="0 0 106 57"><path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path></svg><div class="author-name"><div class="author-name-prefix">id: 926485</div>jean Dupontoir</div></div><div class="tags"><a>Rome</a><a>Services</a></div></article><article class="card"><header class="card-header"><button>Empl. details...</button><p>__________</p><h2>bdp@gmail.com</h2></header><div class="card-author"><a class="author-avatar" href="http://localhost:3000/#"><img src="./React App_files/card-avatar.png"></a><svg class="half-circle" viewBox="0 0 106 57"><path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path></svg><div class="author-name"><div class="author-name-prefix">id: 748645</div>jean Dupontoir</div></div><div class="tags"><a>Rome</a><a>Services</a></div></article><article class="card"><header class="card-header"><button>Empl. details...</button><p>__________</p><h2>bdp@gmail.com</h2></header><div class="card-author"><a class="author-avatar" href="http://localhost:3000/#"><img src="./React App_files/card-avatar.png"></a><svg class="half-circle" viewBox="0 0 106 57"><path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path></svg><div class="author-name"><div class="author-name-prefix">id: 928081</div>manuel Dupontoir</div></div><div class="tags"><a>Rome</a><a>Services</a></div></article><article class="card"><header class="card-header"><button>Empl. details...</button><p>__________</p><h2>gaspardloriot@gmail.com</h2></header><div class="card-author"><a class="author-avatar" href="http://localhost:3000/#"><img src="./React App_files/card-avatar.png"></a><svg class="half-circle" viewBox="0 0 106 57"><path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path></svg><div class="author-name"><div class="author-name-prefix">id: 27506</div>Jean Benoit</div></div><div class="tags"><a>Paris</a><a>Business Development</a></div></article><article class="card"><header class="card-header"><button>Empl. details...</button><p>__________</p><h2>jpp@lol.com</h2></header><div class="card-author"><a class="author-avatar" href="http://localhost:3000/#"><img src="./React App_files/card-avatar.png"></a><svg class="half-circle" viewBox="0 0 106 57"><path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path></svg><div class="author-name"><div class="author-name-prefix">id: 251054</div>Margaux Harnois</div></div><div class="tags"><a>New York</a><a>Marketing</a></div></article><article class="card"><header class="card-header"><button>Empl. details...</button><p>__________</p><h2>gaspardloriot@gmail.com</h2></header><div class="card-author"><a class="author-avatar" href="http://localhost:3000/#"><img src="./React App_files/card-avatar.png"></a><svg class="half-circle" viewBox="0 0 106 57"><path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path></svg><div class="author-name"><div class="author-name-prefix">id: 343083</div>Gaspard Loriot</div></div><div class="tags"><a>London</a><a>Human Resources</a></div></article><article class="card"><header class="card-header"><button>Empl. details...</button><p>__________</p><h2>neymar@hotmail.com</h2></header><div class="card-author"><a class="author-avatar" href="http://localhost:3000/#"><img src="./React App_files/card-avatar.png"></a><svg class="half-circle" viewBox="0 0 106 57"><path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path></svg><div class="author-name"><div class="author-name-prefix">id: 652912</div>Neymar Junior</div></div><div class="tags"><a>Paris</a><a>Product Management</a></div></article><article class="card"><header class="card-header"><button>Empl. details...</button><p>__________</p><h2>jpp@hotmail.com</h2></header><div class="card-author"><a class="author-avatar" href="http://localhost:3000/#"><img src="./React App_files/card-avatar.png"></a><svg class="half-circle" viewBox="0 0 106 57"><path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path></svg><div class="author-name"><div class="author-name-prefix">id: 374024</div>Jean Pierre</div></div><div class="tags"><a>New York</a><a>Sales</a></div></article><article class="card"><header class="card-header"><button>Empl. details...</button><p>__________</p><h2>vic.com</h2></header><div class="card-author"><a class="author-avatar" href="http://localhost:3000/#"><img src="./React App_files/card-avatar.png"></a><svg class="half-circle" viewBox="0 0 106 57"><path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path></svg><div class="author-name"><div class="author-name-prefix">id: 359168</div>Victoire Loriot</div></div><div class="tags"><a>Paris</a><a>Business Development</a></div></article></section><div class="modal-parent" id="modal-parent" style="display: none;"><div class="modal"><div><div id="modal_content"><div id="modal-content"><span id="modal-title"><h3>Employee Card</h3><h3>___id:  0</h3></span><h5>Employee id: 0</h5><span class="change-info"><button class="change-button" style="display: none;"><img src="./React App_files/edit-icon.png" class="edit-icon"></button><h3 class="names" style="display: block;">Name : ____placeholder  </h3><span id="inputs" style="display: none;"><input class="disappear-element" placeholder="Type in first Name..." type="text" value=""><button style="display: none;">Submit</button><br><input class="disappear-element" placeholder="Type in last Name..." type="text" value=""><button style="display: none;">Submit</button></span></span><span class="change-info"><button class="change-button" style="display: none;"><img src="./React App_files/edit-icon.png" class="edit-icon"></button><h4 class="appear-element" style="display: block;">Department : placeholder</h4><span style="display: none;"><input class="disappear-element" placeholder="Add Department..." type="text" value=""><button style="display: none;">Submit</button></span></span><span class="change-info"><h4 class="location" style="">Location : __To be defined</h4></span><span class="change-info"><button class="change-button" style="display: none;"><img src="./React App_files/edit-icon.png" class="edit-icon"></button><h5 class="appear-element" style="display: block;">email : ________placeholder</h5><span style="display: none;"><input class="disappear-element" placeholder="Type in new email..." type="email" value=""><button style="display: none;">Submit</button></span></span><img src="./React App_files/avatar_1.png" id="avatar"></div></div></div><span class="X" id="X" draggable="true">×</span><button id="delete-button" style="display: none;"><img src="./React App_files/delete.png" id="delete"><p>delete</p></button><button id="add-button" style="display: block;"><img src="./React App_files/add-employee.png" id="add"><p>Add...</p></button></div></div></div></div><div id="location"><div id="container"><h3>Locations :  World</h3><section class="small-card-list filt_location"><article class="small-card" style="background-color: rgb(32, 178, 170);"><header class="card-header"><p style="color: black;">World</p><button type="text" placeholder="update" style="display: none;">Filter location</button></header></article><article class="small-card"><header class="card-header"><p>London</p><button type="text" placeholder="update">Filter location</button></header></article><article class="small-card"><header class="card-header"><p>New York</p><button type="text" placeholder="update">Filter location</button></header></article><article class="small-card"><header class="card-header"><p>Paris</p><button type="text" placeholder="update">Filter location</button></header></article><article class="small-card"><header class="card-header"><p>Munich</p><button type="text" placeholder="update">Filter location</button></header></article><article class="small-card"><header class="card-header"><p>Rome</p><button type="text" placeholder="update">Filter location</button></header></article></section></div></div><div id="department"><div id="container"><h3>Departments : All</h3><section class="small-card-list"><article class="small-card" style="background-color: rgb(139, 0, 0);"><header class="card-header"><p style="color: white;">All</p><button type="text" placeholder="update" style="display: none;">Filter department</button></header></article><article class="small-card"><header class="card-header"><p>Human Resour</p><button type="text" placeholder="update">Filter department</button></header></article><article class="small-card"><header class="card-header"><p>Sales</p><button type="text" placeholder="update">Filter department</button></header></article><article class="small-card"><header class="card-header"><p>Marketing</p><button type="text" placeholder="update">Filter department</button></header></article><article class="small-card"><header class="card-header"><p>Legal</p><button type="text" placeholder="update">Filter department</button></header></article><article class="small-card"><header class="card-header"><p>Services</p><button type="text" placeholder="update">Filter department</button></header></article><article class="small-card"><header class="card-header"><p>R&amp;D</p><button type="text" placeholder="update">Filter department</button></header></article><article class="small-card"><header class="card-header"><p>Product Mana</p><button type="text" placeholder="update">Filter department</button></header></article><article class="small-card"><header class="card-header"><p>Training</p><button type="text" placeholder="update">Filter department</button></header></article><article class="small-card"><header class="card-header"><p>Support</p><button type="text" placeholder="update">Filter department</button></header></article><article class="small-card"><header class="card-header"><p>Engineering</p><button type="text" placeholder="update">Filter department</button></header></article><article class="small-card"><header class="card-header"><p>Accounting</p><button type="text" placeholder="update">Filter department</button></header></article><article class="small-card"><header class="card-header"><p>Business Dev</p><button type="text" placeholder="update">Filter department</button></header></article></section></div></div></div></div></div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+  <script src="./React App_files/bundle.js.téléchargement"></script><script src="./React App_files/1.chunk.js.téléchargement"></script><script src="./React App_files/main.chunk.js.téléchargement"></script><script src="./React App_files/main.2c30356125ab55c0c7cd.hot-update.js.téléchargement"></script>
+
+<script type="text/javascript" src="chrome-extension://aalppolilappfakpmdfdkpppdnhpgifn/installHook.js"></script></body></html>

@@ -1,0 +1,191 @@
+*{
+  margin-top: 0;
+  z-index:1;
+}
+
+#App{
+  width:100vw;
+}
+#navBar{
+  position:fixed;
+  width:100vw;
+  height:4vh;  
+  background-color: teal;
+  z-index:5;
+}
+
+#main-container{
+  display:flex-column;
+  width:100%;
+  padding-top:4vh;
+  background-color: #F5F5F5;
+  height:100%;
+  z-index:2;  
+}
+
+#search_filter{
+  display:flex;
+  justify-content: center;
+  align-items:center;
+  height:5.5vh;
+  background-image: linear-gradient(
+    to bottom, 
+    teal , whitesmoke
+  );
+  margin-bottom:1vh;
+}
+
+#employees{  
+  height:40vh;  
+}
+
+#location{
+  height:23vh;
+}
+
+#department{
+  height:25vh;
+}
+
+#container{
+  padding-left:10vw;
+  padding-right:5vw;
+}
+
+#employees-title{
+  display:flex;
+  align-items: center;
+}
+
+#employee-adder{
+  display:inline-block;
+  margin-left:20px;  
+  font-size: 16px;
+  padding-top:none;
+  margin-bottom:21px;
+  margin-top:none;
+  margin-right:25px;
+  border:3px solid navy;
+}
+
+#employee-adder:hover {
+  transition:0.2s;  
+  border:3px solid green;
+}
+
+.select{
+  background-color:transparent;
+  font-size:20px;
+  font-family: 'DM Mono', monospace;
+  border:none;
+  border-radius:none;
+  border-bottom: 2px solid navy;
+  margin-bottom: 10px;
+  color:black;
+  margin-right:20px;
+  cursor: pointer;
+}
+
+select option{
+  background-color: navy;
+  color:white;
+}
+
+
+
+
+@media (min-width: 320px) and (max-width: 480px) {
+    
+    #navBar{
+      position:fixed;
+      width:100%;
+      height:7vh;  
+      background-color: teal;
+      z-index:5;
+    }
+    
+    #main-container{
+      display:flex-column;
+      width:100%;
+      padding-top:7vh;
+      background-color: #F5F5F5;
+      height:100%;
+      z-index:2;  
+      padding-bottom: 5vh;;
+    }
+    
+    #search_filter{
+      display:flex;
+      align-items:flex-start;
+      height:6vh;
+      background-image: linear-gradient(
+        to bottom, 
+        teal , whitesmoke
+      );
+      margin-bottom:1vh;
+    }
+
+    .filt_location{
+      overflow-x: scroll;
+  }
+    
+    #employees{  
+      height:100%;
+      margin:none;  
+    }
+    
+    #location{
+      height:100%;
+    }
+    
+    #department{
+      height:100%;
+    }
+
+    #container{
+      padding-left:2vw;
+      padding-right:2.5vw;
+      padding-bottom: 3vh;
+    }
+
+    .select{      
+      font-size:16px;      
+      margin-bottom: 5px;
+      width:20vw;
+      margin-right:2vw;   
+    }
+
+    #filterName_Id{
+      width:40vw;
+    }
+
+    h1{
+      font-size: 16px;
+    }
+
+    h3{
+      font-size:12px;
+    }
+
+    #employees-title{
+      display:flex-column;
+      align-items: flex-start;
+    }
+
+    #employee-adder{
+      display:flex;
+      align-items: baseline;
+      margin-left:2vw;  
+      font-size: 12px;
+      padding-top:none;
+      margin-bottom:1vh;
+      margin-top:none;
+      margin-right:3vw;
+      border:3px solid navy;
+    }
+
+    #write-to-search_icon{
+      display:none;
+    }
+
+}
